@@ -1,12 +1,8 @@
-import React from 'react';
-import "./styles/global.scss";
+import React from "react";
+import "./styles/app.scss";
 
 function App() {
-  return (
-    <div>
-      Test
-    </div>
-  );
+  return <div>Test</div>;
 }
 
 export default App;

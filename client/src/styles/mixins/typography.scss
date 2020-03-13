@@ -1,4 +1,41 @@
+@import "./utility.scss";
+
 // Mobile typography
 
 // Desktop typography
 
+@mixin heading-1 {
+  font-size: to-rem(96px);
+  font-weight: 900;
+}
+
+@mixin heading-2 {
+  font-size: to-rem(80px);
+  font-weight: 900;
+}
+
+@mixin heading-3 {
+  font-size: to-rem(64px);
+  font-weight: 600;
+}
+
+@mixin heading-4 {
+  font-size: to-rem(48px);
+  font-weight: 600;
+}
+
+@mixin body-large {
+  font-size: to-rem(30px);
+}
+
+@mixin body-regular {
+  font-size: to-rem(22px);
+}
+
+@mixin body-small {
+  font-size: to-rem(16px);
+}
+
+@mixin link {
+  text-decoration: underline;
+}

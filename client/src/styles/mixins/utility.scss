@@ -6,19 +6,19 @@
   @return (strip-units($pixelValue) / 16) + rem;
 }
 
-@include breakpoint($breakpoint) {
+@mixin breakpoint($breakpoint) {
   @if $breakpoint == tabletS {
     @media (min-width: $breakpoint-tabletS-width-min) {
       @content;
     }
   }
-  
+
   @if $breakpoint == laptop {
     @media (min-width: $breakpoint-tabletL-laptop-width-min) {
       @content;
     }
   }
-  
+
   @if $breakpoint == tabletL {
     @media (min-width: $breakpoint-tabletL-laptop-width-min) and (min-height: $breakpoint-tabletL-height-min) {
       @content;
