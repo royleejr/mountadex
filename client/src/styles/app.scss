@@ -1,0 +1,16 @@
+@import "./reset.scss";
+@import "./variables.scss";
+@import "./fonts.scss";
+
+body {
+  font-family: $overpass, sans-serif;
+  background-color: $white;
+}
+
+a {
+  color: inherit;
+}
+
+button {
+  font-family: inherit;
+}

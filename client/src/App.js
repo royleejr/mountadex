@@ -6,7 +6,7 @@ import Home from './pages/Home/Home';
 import Mountain from './pages/Mountain/Mountain';
 
 //styling
-import './App.css';
+import "./styles/app.scss";
 
 function App() {
   return (
@@ -16,7 +16,7 @@ function App() {
         <Route path="/mountain/:mountainName" component={Mountain}/>
       </Switch>
     </BrowserRouter>
-  );
+  )
 }
 
 export default App;
