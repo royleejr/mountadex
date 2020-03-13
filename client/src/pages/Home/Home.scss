@@ -1,4 +1,6 @@
+@import '../../styles/global.scss';
+
 .home {
-  font-size: 100px;
+  font-size: to-rem(100px);
   font-weight: 900;
 }
