@@ -1,11 +1,7 @@
-import React from 'react';
+import React from "react";
 
-import './MountainTrailMap.scss';
+import "./MountainTrailMap.scss";
 
-export default function MountainTrailMap () {
-  return (
-    <section className="mouintain-trail-map">
-      MountainTrailMap
-    </section>
-  )
+export default function MountainTrailMap() {
+  return <section className="mouintain-trail-map">MountainTrailMap</section>;
 }

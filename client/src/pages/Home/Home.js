@@ -1,11 +1,7 @@
-import React from 'react';
+import React from "react";
 
-import './Home.scss';
+import "./Home.scss";
 
-export default function Home () {
-  return (
-    <div className="home">
-      Mountadex
-    </div>
-  )
+export default function Home() {
+  return <main className="home">Mountadex</main>;
 }

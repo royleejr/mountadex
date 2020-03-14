@@ -1,11 +1,7 @@
-import React from 'react';
+import React from "react";
 
-import './Mountain.scss';
+import "./Mountain.scss";
 
-export default function Mountain () {
-  return (
-    <div className="mountain">
-      Mountain
-    </div>
-  )
+export default function Mountain() {
+  return <main className="mountain">Mountain</main>;
 }

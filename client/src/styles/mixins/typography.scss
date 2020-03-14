@@ -2,6 +2,37 @@
 
 // Mobile typography
 
+@mixin heading-1-mobile {
+  font-size: to-rem(60px);
+  font-weight: 900;
+}
+
+@mixin heading-2-mobile {
+  font-size: to-rem(50px);
+  font-weight: 900;
+}
+
+@mixin heading-3-mobile {
+  font-size: to-rem(40px);
+  font-weight: 600;
+}
+
+@mixin heading-4-mobile {
+  font-size: to-rem(30px);
+}
+
+@mixin body-large-mobile {
+  font-size: to-rem(20px);
+}
+
+@mixin body-regular-mobile {
+  font-size: to-rem(15px);
+}
+
+@mixin body-small-mobile {
+  font-size: to-rem(12px);
+}
+
 // Desktop typography
 
 @mixin heading-1 {
@@ -25,16 +56,18 @@
 }
 
 @mixin body-large {
-  font-size: to-rem(30px);
+  font-size: to-rem(32px);
 }
 
 @mixin body-regular {
-  font-size: to-rem(22px);
+  font-size: to-rem(24px);
 }
 
 @mixin body-small {
   font-size: to-rem(16px);
 }
+
+//general styling
 
 @mixin link {
   text-decoration: underline;
