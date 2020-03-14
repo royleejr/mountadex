@@ -37,3 +37,15 @@
     }
   }
 }
+
+@mixin container {
+  padding: 0 to-rem(24px);
+
+  @include breakpoint(tabletS) {
+    padding: 0 to-rem(36px);
+  }
+
+  @include breakpoint(desktopS) {
+    padding: 0 to-rem(160px);
+  }
+}
