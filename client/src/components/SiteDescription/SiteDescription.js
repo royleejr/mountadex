@@ -1,11 +1,11 @@
-import React from 'react';
+import React from "react";
 
-import './SiteDescription.scss';
+import "./SiteDescription.scss";
 
 export default function SiteDescription() {
-  return(
-    <section className="site-description">
+  return (
+    <section id="about" className="site-description">
       SiteDescription
     </section>
-  )
+  );
 }

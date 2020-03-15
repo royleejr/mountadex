@@ -3,23 +3,28 @@
 .header {
   width: 100vw;
   height: to-rem(70px);
-  background-color: blue;
+  background-color: #39a9db;
   transition: 1s ease;
   position: fixed;
-  // top: 0;
-  // left: 0;
+  top: 0;
+  left: 0;
   z-index: 100;
 
   &__container {
     height: 100%;
     @include container;
+  }
+
+  &__top {
     display: flex;
   }
 
   &__logo {
     color: white;
     @include body-large-mobile;
-    align-self: center;
+    position: absolute;
+    top: to-rem(25px);
+    // right: to-rem(28px);
   }
 
   &__menu {
@@ -27,10 +32,38 @@
     top: to-rem(28px);
     right: to-rem(28px);
   }
-}
 
-$color: #fff;
-$active: #fff;
+  &__fullscreen {
+    margin-top: 50%;
+    color: red;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__links {
+    @include heading-4;
+    margin-bottom: to-rem(30px);
+
+    &--sub {
+      @include heading-4;
+      margin-left: to-rem(40px);
+      text-decoration: none;
+    }
+
+    &--selected {
+      text-decoration: underline;
+    }
+
+    &:hover {
+      color: blue;
+    }
+  }
+
+  &__sub-container {
+    display: flex;
+    flex-direction: column;
+  }
+}
 
 input {
   display: none;
@@ -40,7 +73,7 @@ input {
       span {
         &:before,
         &:after {
-          background: $active;
+          background: $white;
         }
         &:first-child {
           &:before {
@@ -64,7 +97,7 @@ input {
       stroke-dashoffset: 62;
       stroke-dasharray: 0 82.801 62 82.801;
       transform: rotate(90deg);
-      stroke: $active;
+      stroke: #fff;
       &:nth-child(3) {
         transform: rotate(270deg);
       }
@@ -111,7 +144,7 @@ input {
           width: 47%;
           height: 2px;
           border-radius: 1px;
-          background: $color;
+          background: $white;
           position: absolute;
           -webkit-backface-visibility: hidden;
           transition: transform 0.5s ease, border-radius 0.3s ease,
@@ -132,7 +165,7 @@ input {
     svg {
       display: block;
       fill: none;
-      stroke: $color;
+      stroke: $white;
       stroke-width: 2px;
       width: 44px;
       height: 44px;

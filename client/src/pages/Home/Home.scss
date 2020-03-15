@@ -1,1 +1,10 @@
 @import "../../styles/global.scss";
+
+.home {
+  margin-top: to-rem(70px);
+}
+
+.full {
+  width: 100vw;
+  height: 100vh;
+}
