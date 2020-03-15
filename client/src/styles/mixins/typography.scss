@@ -3,71 +3,86 @@
 // Mobile typography
 
 @mixin heading-1-mobile {
-  font-size: to-rem(60px);
+  font-size: to-rem(50px);
+  line-height: to-rem(50px);
   font-weight: 900;
 }
 
 @mixin heading-2-mobile {
-  font-size: to-rem(50px);
+  font-size: to-rem(40px);
+  line-height: to-rem(40px);
   font-weight: 900;
 }
 
 @mixin heading-3-mobile {
-  font-size: to-rem(40px);
+  font-size: to-rem(30px);
+  line-height: to-rem(30px);
   font-weight: 600;
 }
 
 @mixin heading-4-mobile {
-  font-size: to-rem(30px);
+  font-size: to-rem(20px);
+  line-height: to-rem(20px);
+  font-weight: 600;
 }
 
 @mixin body-large-mobile {
-  font-size: to-rem(20px);
+  font-size: to-rem(15px);
+  line-height: to-rem(19px);
 }
 
 @mixin body-regular-mobile {
-  font-size: to-rem(15px);
+  font-size: to-rem(12px);
+  line-height: to-rem(16px);
 }
 
 @mixin body-small-mobile {
-  font-size: to-rem(12px);
+  font-size: to-rem(8px);
+  line-height: to-rem(12px);
 }
 
 // Desktop typography
 
 @mixin heading-1 {
-  font-size: to-rem(96px);
+  font-size: to-rem(80px);
+  line-height: to-rem(80px);
   font-weight: 900;
 }
 
 @mixin heading-2 {
-  font-size: to-rem(80px);
+  font-size: to-rem(64px);
+  line-height: to-rem(64px);
   font-weight: 900;
 }
 
 @mixin heading-3 {
-  font-size: to-rem(64px);
+  font-size: to-rem(48px);
+  line-height: to-rem(48px);
   font-weight: 600;
 }
 
 @mixin heading-4 {
-  font-size: to-rem(48px);
+  font-size: to-rem(32px);
+  line-height: to-rem(32px);
   font-weight: 600;
 }
 
 @mixin body-large {
-  font-size: to-rem(32px);
+  font-size: to-rem(24px);
+  line-height: to-rem(28px);
 }
 
 @mixin body-regular {
-  font-size: to-rem(24px);
+  font-size: to-rem(16px);
+  line-height: to-rem(20px);
 }
 
 @mixin body-small {
-  font-size: to-rem(16px);
+  font-size: to-rem(12px);
+  line-height: to-rem(16px);
 }
 
-//general styling
+// General typography
 
 @mixin link {
   text-decoration: underline;
