@@ -2,6 +2,7 @@ import React from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 
 //pages
+import Header from "./components/Header/Header";
 import Home from "./pages/Home/Home";
 import Mountain from "./pages/Mountain/Mountain";
 
@@ -11,6 +12,7 @@ import "./styles/app.scss";
 function App() {
   return (
     <BrowserRouter>
+      <Header />
       <Switch>
         <Route path="/" exact component={Home} />
         <Route path="/mountain/:mountainName" component={Mountain} />
