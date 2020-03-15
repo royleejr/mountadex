@@ -10,7 +10,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    max-width: 1920px;
+    max-width: to-rem(1920px);
     height: 100%;
     margin: 0 auto;
 
@@ -27,8 +27,8 @@
     margin-bottom: to-rem(16px);
 
     @include breakpoint(tabletS) {
-      max-width: 696px;
-      padding-top: calc((4 / 6) * 696px);
+      max-width: to-rem(696px);
+      padding-top: calc((4 / 6) * to-rem(696px));
       margin-bottom: to-rem(24px);
     }
 
@@ -55,7 +55,7 @@
     text-align: center;
 
     @include breakpoint(tabletS) {
-      max-width: 696px;
+      max-width: to-rem(696px);
     }
 
     @include breakpoint(desktopS) {
