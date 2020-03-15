@@ -1,0 +1,18 @@
+[
+  {
+    "url": "blue-mountain",
+    "name": "Blue Mountain",
+    "location": "Ontario, Canada",
+    "description": "Blue Mountain is the third-busiest ski resort in the country, ranking after Whistler-Blackcomb in British Columbia and Mont Tremblant in Quebec. It is one of the most popular destinations among skiers from Southern Ontario and features high-speed lifts, freestyle terrains, ice skating trail, and a beautiful residential village at its base.",
+    "officialWebsiteLink": "https://www.bluemountain.ca/",
+    "googleMapsLink": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d11382.393874048164!2d-80.33272390969091!3d44.50289371561986!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x882a70d72afb3245%3A0x69d4c00d87c251ab!2sBlue%20Mountain%20Resort!5e0!3m2!1sen!2sca!4v1584236238875!5m2!1sen!2sca"
+  },
+  {
+    "url": "horseshoe-resort",
+    "name": "Horseshoe Resort",
+    "location": "Ontario, Canada",
+    "description": "Horseshoe Resort is known for offering activities in all four seasons, including nordic skiing, snowshoeing, mountain biking, ziplining, and treetop trekking. The resort is located just an hour north of Toronto, making it a popular destination for visitors from the city.",
+    "officialWebsiteLink": "https://horseshoeresort.com/",
+    "googleMapsLink": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d11373.295175258934!2d-79.6811993017792!3d44.549476467248056!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4d2ab4e9ccf5f9eb%3A0x9d1e789938874950!2sHorseshoe%20Resort!5e0!3m2!1sen!2sca!4v1584295600498!5m2!1sen!2sca"
+  }
+]
