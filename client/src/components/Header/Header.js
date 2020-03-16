@@ -1,50 +1,55 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { NavLink } from "react-router-dom";
 import { NavHashLink } from "react-router-hash-link";
 
 import "./Header.scss";
 
-export default function Header(props) {
-  const [toggle, setToggle] = useState(false);
-  const [dropDown, setdropDown] = useState(false);
+export default class Header extends React.Component {
+  state = {
+    toggle: false,
+    dropDown: false
+  };
 
-  useEffect(() => {
-    window.addEventListener("resize", updateView);
-    updateView();
-    return () => {
-      window.removeEventListener("resize", updateView());
-      // console.log("removing");
-    };
-  }, []);
+  componentDidMount() {
+    window.addEventListener("resize", this.updateView);
+    this.updateView();
+  }
 
-  useEffect(() => {
-    expand();
-  }, [toggle]);
+  componentWillUnmount() {
+    window.removeEventListener("resize", this.updateView);
+  }
 
-  useEffect(() => {
-    console.log("useeffect run");
-    classToggle();
-  }, [dropDown]);
+  // useEffect(() => {
+  //   expand();
+  // }, [toggle]);
 
-  const updateView = () => {
+  // useEffect(() => {
+  //   console.log("useeffect run");
+  //   classToggle();
+  // }, [dropDown]);
+
+  updateView = () => {
     if (window.innerWidth >= 1280) {
       document
         .getElementById("mountain")
-        .addEventListener("click", dropDownToggle);
+        .addEventListener("click", this.dropDownToggle);
       // console.log("adding evnet listenre");
     }
   };
 
-  const dropDownToggle = async event => {
-    // event.preventDefault();
-    // console.log("before", dropDown);
-    setdropDown(!dropDown);
-    // console.log("after", dropDown);
+  dropDownToggle = async event => {
+    await this.setState(
+      {
+        dropDown: !this.state.dropDown
+      },
+      () => {
+        this.classToggle();
+      }
+    );
   };
 
-  const classToggle = () => {
-    // console.log(dropDown);
-    if (dropDown) {
+  classToggle = () => {
+    if (this.state.dropDown) {
       document
         .querySelector(".header__sub-container")
         .classList.remove("header__sub-container--display");
@@ -55,17 +60,26 @@ export default function Header(props) {
     }
   };
 
-  const headerToggle = async (event, link) => {
+  headerToggle = async (event, link) => {
+    console.log("this is triggering");
     if (link) {
-      await setToggle(!toggle);
+      event.preventDefault();
+      await this.setState({
+        toggle: !this.state.toggle
+      });
+      this.expand();
     } else {
       event.preventDefault();
-      await setToggle(!toggle);
+      console.log("link doesn't exists");
+      await this.setState({
+        toggle: !this.state.toggle
+      });
+      this.expand();
     }
   };
 
-  const expand = () => {
-    if (toggle) {
+  expand = () => {
+    if (this.state.toggle) {
       const header = document.querySelector(".header");
       header.setAttribute(
         "style",
@@ -78,9 +92,8 @@ export default function Header(props) {
         setTimeout(() => {
           if (!item.innerText.includes("MOUNTAINS")) {
             item.classList.remove("header__links--display");
-            item.addEventListener("click", event =>
-              headerToggle(event, "link")
-            );
+            console.log(item);
+            item.addEventListener("click", this.headerToggle);
           } else {
             item.classList.remove("header__links--display");
           }
@@ -92,125 +105,133 @@ export default function Header(props) {
       document.getElementById("input").checked = false;
       document.querySelector("nav").classList.add("header__links--display");
       document.querySelectorAll(".header__links").forEach(item => {
+        item.removeEventListener("click", this.headerToggle);
+        console.log("this is happening");
         item.classList.add("header__links--display");
-        item.removeEventListener("click", event => headerToggle(event, "link"));
       });
     }
   };
 
-  // console.log(dropToggle, "this is drop toggle");
-  return (
-    <header className="header">
-      <div className="header__container">
-        <div className="header__top">
-          <div className="header__logo">Logo</div>
-          <div className="header__menu" onClick={headerToggle}>
-            <input type="checkbox" id="input" />
-            <label className="toggle" htmlFor="input">
-              <div>
+  render() {
+    return (
+      <header className="header">
+        <div className="header__container">
+          <div className="header__top">
+            <div className="header__logo">Logo</div>
+            <div className="header__menu" onClick={this.headerToggle}>
+              <input type="checkbox" id="input" />
+              <label className="toggle" htmlFor="input">
                 <div>
-                  <span></span>
-                  <span></span>
+                  <div>
+                    <span></span>
+                    <span></span>
+                  </div>
+                  <svg>
+                    <use xlinkHref="#path" />
+                  </svg>
+                  <svg>
+                    <use xlinkHref="#path" />
+                  </svg>
                 </div>
-                <svg>
-                  <use xlinkHref="#path" />
-                </svg>
-                <svg>
-                  <use xlinkHref="#path" />
-                </svg>
-              </div>
-            </label>
-            <svg xmlns="http://www.w3.org/2000/svg" style={{ display: "none" }}>
-              <symbol
+              </label>
+              <svg
                 xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 44 44"
-                id="path"
+                style={{ display: "none" }}
               >
-                <path d="M22,22 L2,22 C2,11 11,2 22,2 C33,2 42,11 42,22"></path>
-              </symbol>
-            </svg>
+                <symbol
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 44 44"
+                  id="path"
+                >
+                  <path d="M22,22 L2,22 C2,11 11,2 22,2 C33,2 42,11 42,22"></path>
+                </symbol>
+              </svg>
+            </div>
           </div>
+          <nav className="header__nav header__links--display">
+            <NavHashLink
+              smooth
+              exact
+              to="/#home"
+              className="header__links"
+              isActive={(match, location) => {
+                if (location.pathname === "/" && location.hash === "") {
+                  return true;
+                } else {
+                  return false;
+                }
+              }}
+              activeClassName="header__links--selected"
+              // onClick={event => headerToggle(event, "link")}
+            >
+              HOME
+            </NavHashLink>
+            <NavHashLink
+              smooth
+              exact
+              to="/#about"
+              className="header__links header__links--display"
+              isActive={(match, location) => {
+                if (location.pathname === "/#about") {
+                  return true;
+                } else {
+                  return false;
+                }
+              }}
+              activeClassName="header__links--selected"
+              location={{
+                pathname: document.location.pathname + document.location.hash
+              }}
+              // onClick={event => headerToggle(event, "link")}
+            >
+              ABOUT
+            </NavHashLink>
+            <NavHashLink
+              smooth
+              exact
+              to="/#index"
+              className="header__links header__links--display"
+              isActive={(match, location) => {
+                if (location.hash === "#index") {
+                  return true;
+                } else {
+                  return false;
+                }
+              }}
+              activeClassName="header__links--selected"
+              // onClick={event => headerToggle(event, "link")}
+            >
+              MOUNTAIN INDEX
+            </NavHashLink>
+            <div>
+              <div
+                className="header__links header__links--display"
+                id="mountain"
+              >
+                MOUNTAINS
+              </div>
+              <div className="header__sub-container header__sub-container--display">
+                <NavLink
+                  to="/mountain/blue-mountain"
+                  className="header__links header__links--sub header__links--display"
+                  activeClassName="header__links--selected"
+                  // onClick={event => headerToggle(event, "link")}
+                >
+                  Blue Mountain
+                </NavLink>
+                <NavLink
+                  to="/mountain/horseshoe-valley"
+                  className="header__links header__links--sub header__links--display"
+                  activeClassName="header__links--selected"
+                  // onClick={event => headerToggle(event, "link")}
+                >
+                  Horseshoe Valley
+                </NavLink>
+              </div>
+            </div>
+          </nav>
         </div>
-        <nav className="header__nav header__links--display">
-          <NavHashLink
-            smooth
-            exact
-            to="/#home"
-            className="header__links"
-            isActive={(match, location) => {
-              if (location.pathname === "/" && location.hash === "") {
-                return true;
-              } else {
-                return false;
-              }
-            }}
-            activeClassName="header__links--selected"
-            // onClick={event => headerToggle(event, "link")}
-          >
-            HOME
-          </NavHashLink>
-          <NavHashLink
-            smooth
-            exact
-            to="/#about"
-            className="header__links header__links--display"
-            isActive={(match, location) => {
-              if (location.pathname === "/#about") {
-                return true;
-              } else {
-                return false;
-              }
-            }}
-            activeClassName="header__links--selected"
-            location={{
-              pathname: document.location.pathname + document.location.hash
-            }}
-            // onClick={event => headerToggle(event, "link")}
-          >
-            ABOUT
-          </NavHashLink>
-          <NavHashLink
-            smooth
-            exact
-            to="/#index"
-            className="header__links header__links--display"
-            isActive={(match, location) => {
-              if (location.hash === "#index") {
-                return true;
-              } else {
-                return false;
-              }
-            }}
-            activeClassName="header__links--selected"
-            // onClick={event => headerToggle(event, "link")}
-          >
-            MOUNTAIN INDEX
-          </NavHashLink>
-          <div>
-            <div className="header__links header__links--display" id="mountain">
-              MOUNTAINS
-            </div>
-            <div className="header__sub-container header__sub-container--display">
-              <NavLink
-                to="/mountain/blue-mountain"
-                className="header__links header__links--sub header__links--display"
-                activeClassName="header__links--selected"
-                // onClick={event => headerToggle(event, "link")}
-              >
-                Blue Mountain
-              </NavLink>
-              <NavLink
-                to="/mountain/horseshoe-valley"
-                className="header__links header__links--sub header__links--display"
-                activeClassName="header__links--selected"
-                // onClick={event => headerToggle(event, "link")}
-              >
-                Horseshoe Valley
-              </NavLink>
-            </div>
-          </div>
-        </nav>
-      </div>
-    </header>
-  );
+      </header>
+    );
+  }
 }
