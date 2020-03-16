@@ -6,28 +6,53 @@ import "./Header.scss";
 
 export default function Header(props) {
   const [toggle, setToggle] = useState(false);
-  const [dropToggle, setDropToggle] = useState(false);
-  // const [view, setView] = useState("");
+  const [dropDown, setdropDown] = useState(false);
+
+  useEffect(() => {
+    window.addEventListener("resize", updateView);
+    updateView();
+    return () => {
+      window.removeEventListener("resize", updateView());
+      // console.log("removing");
+    };
+  }, []);
 
   useEffect(() => {
     expand();
-    window.addEventListener("resize", updateView);
-    updateView();
   }, [toggle]);
+
+  useEffect(() => {
+    console.log("useeffect run");
+    classToggle();
+  }, [dropDown]);
 
   const updateView = () => {
     if (window.innerWidth >= 1280) {
-      console.log("no");
-      console.log(document.querySelector(".header__sub-container"));
       document
-        .querySelector(".header__sub-container")
-        .addEventListener("click", dropDown);
+        .getElementById("mountain")
+        .addEventListener("click", dropDownToggle);
+      // console.log("adding evnet listenre");
     }
   };
 
-  const dropDown = () => {
-    setDropToggle(!dropToggle);
-    console.log("this is happening", dropToggle);
+  const dropDownToggle = async event => {
+    // event.preventDefault();
+    // console.log("before", dropDown);
+    setdropDown(!dropDown);
+    // console.log("after", dropDown);
+  };
+
+  const classToggle = () => {
+    // console.log(dropDown);
+    if (dropDown) {
+      document
+        .querySelector(".header__sub-container")
+        .classList.remove("header__sub-container--display");
+    } else {
+      document
+        .querySelector(".header__sub-container")
+        .classList.add("header__sub-container--display");
+    }
   };
 
   const headerToggle = async (event, link) => {
@@ -73,6 +98,7 @@ export default function Header(props) {
     }
   };
 
+  // console.log(dropToggle, "this is drop toggle");
   return (
     <header className="header">
       <div className="header__container">
@@ -160,13 +186,11 @@ export default function Header(props) {
           >
             MOUNTAIN INDEX
           </NavHashLink>
-          <div className="header__links header__links--display">
-            <div className="header__links">MOUNTAINS</div>
-            <div
-              className={`header__sub-container ${
-                dropToggle ? null : "header__sub-container--display"
-              }`}
-            >
+          <div>
+            <div className="header__links header__links--display" id="mountain">
+              MOUNTAINS
+            </div>
+            <div className="header__sub-container header__sub-container--display">
               <NavLink
                 to="/mountain/blue-mountain"
                 className="header__links header__links--sub header__links--display"
