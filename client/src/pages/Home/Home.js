@@ -5,7 +5,7 @@ import SiteDescription from "../../components/SiteDescription/SiteDescription";
 
 export default function Home() {
   return (
-    <main className="home">
+    <main className="home" id="home">
       <div className="full">Hello</div>
       <SiteDescription />
     </main>
