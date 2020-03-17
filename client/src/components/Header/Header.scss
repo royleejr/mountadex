@@ -3,7 +3,7 @@
 .header {
   width: 100vw;
   height: to-rem(70px);
-  background-color: #39a9db;
+  background: transparent;
   transition: 1s ease;
   position: fixed;
   top: 0;
@@ -67,7 +67,7 @@
 
   &__nav {
     margin-top: 50%;
-    color: red;
+    color: white;
     display: flex;
     flex-direction: column;
 
@@ -82,8 +82,6 @@
     @include breakpoint(desktopS) {
       flex-direction: row;
       margin-top: 0;
-      height: 100%;
-      align-items: center;
     }
   }
 
@@ -99,7 +97,9 @@
     @include breakpoint(desktopS) {
       @include body-regular;
       margin-bottom: 0;
-      margin-left: to-rem(20px);
+      margin-left: to-rem(40px);
+      display: flex;
+      align-items: center;
     }
 
     &--display {
@@ -120,6 +120,9 @@
 
       @include breakpoint(desktopS) {
         @include body-small;
+        margin-left: to-rem(20px);
+        margin-bottom: 5px;
+        transition: 0.2s ease-out;
       }
     }
 
@@ -132,10 +135,28 @@
     }
   }
 
+  &__desktop {
+    @include breakpoint(desktopS) {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      height: 100%;
+    }
+  }
+
   &__sub-container {
     display: flex;
     flex-direction: column;
+    align-items: center;
     margin-top: to-rem(20px);
+
+    @include breakpoint(desktopS) {
+      position: absolute;
+      top: -5px;
+      right: 140px;
+      padding-right: to-rem(20px);
+      border-radius: 10px;
+    }
 
     &--display {
       @include breakpoint(desktopS) {
@@ -143,6 +164,10 @@
       }
     }
   }
+}
+
+#mountain {
+  z-index: 20;
 }
 
 input {

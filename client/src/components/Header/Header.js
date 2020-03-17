@@ -19,21 +19,11 @@ export default class Header extends React.Component {
     window.removeEventListener("resize", this.updateView);
   }
 
-  // useEffect(() => {
-  //   expand();
-  // }, [toggle]);
-
-  // useEffect(() => {
-  //   console.log("useeffect run");
-  //   classToggle();
-  // }, [dropDown]);
-
   updateView = () => {
     if (window.innerWidth >= 1280) {
       document
         .getElementById("mountain")
         .addEventListener("click", this.dropDownToggle);
-      // console.log("adding evnet listenre");
     }
   };
 
@@ -53,24 +43,53 @@ export default class Header extends React.Component {
       document
         .querySelector(".header__sub-container")
         .classList.remove("header__sub-container--display");
+      document.querySelectorAll(".header__links").forEach(item => {
+        item.addEventListener("click", this.dropDownToggle);
+      });
+      let timer = 0;
+      document.querySelectorAll(".header__links--sub").forEach(item => {
+        item.setAttribute("style", "transform: translateY(60px); opacity: 0;");
+        setTimeout(() => {
+          item.setAttribute(
+            "style",
+            "transform: translateY(40px); opacity: 1;"
+          );
+        }, timer);
+        timer += 300;
+      });
     } else {
-      document
-        .querySelector(".header__sub-container")
-        .classList.add("header__sub-container--display");
+      let newTimer = 0;
+      const subLinks = document.querySelectorAll(".header__links--sub");
+      subLinks.forEach((item, index) => {
+        setTimeout(() => {
+          item.setAttribute("style", "transform: translateY(20px); opacity:0;");
+        }, newTimer);
+        newTimer += 300;
+        if (index === subLinks.length - 1) {
+          setTimeout(() => {
+            document
+              .querySelector(".header__sub-container")
+              .classList.add("header__sub-container--display");
+          }, 400);
+        }
+      });
+
+      document.querySelectorAll(".header__links").forEach(item => {
+        if (!item.innerText.includes("MOUNTAINS")) {
+          item.removeEventListener("click", this.dropDownToggle);
+        }
+      });
     }
   };
 
   headerToggle = async (event, link) => {
-    console.log("this is triggering");
-    if (link) {
-      event.preventDefault();
+    if (!link) {
       await this.setState({
         toggle: !this.state.toggle
       });
       this.expand();
     } else {
       event.preventDefault();
-      console.log("link doesn't exists");
       await this.setState({
         toggle: !this.state.toggle
       });
@@ -92,7 +111,6 @@ export default class Header extends React.Component {
         setTimeout(() => {
           if (!item.innerText.includes("MOUNTAINS")) {
             item.classList.remove("header__links--display");
-            console.log(item);
             item.addEventListener("click", this.headerToggle);
           } else {
             item.classList.remove("header__links--display");
@@ -106,7 +124,6 @@ export default class Header extends React.Component {
       document.querySelector("nav").classList.add("header__links--display");
       document.querySelectorAll(".header__links").forEach(item => {
         item.removeEventListener("click", this.headerToggle);
-        console.log("this is happening");
         item.classList.add("header__links--display");
       });
     }
@@ -118,7 +135,10 @@ export default class Header extends React.Component {
         <div className="header__container">
           <div className="header__top">
             <div className="header__logo">Logo</div>
-            <div className="header__menu" onClick={this.headerToggle}>
+            <div
+              className="header__menu"
+              onClick={event => this.headerToggle(event, "link")}
+            >
               <input type="checkbox" id="input" />
               <label className="toggle" htmlFor="input">
                 <div>
@@ -155,14 +175,16 @@ export default class Header extends React.Component {
               to="/#home"
               className="header__links"
               isActive={(match, location) => {
-                if (location.pathname === "/" && location.hash === "") {
+                if (
+                  (location.pathname === "/" && location.hash === "") ||
+                  location.hash === "#home"
+                ) {
                   return true;
                 } else {
                   return false;
                 }
               }}
               activeClassName="header__links--selected"
-              // onClick={event => headerToggle(event, "link")}
             >
               HOME
             </NavHashLink>
@@ -182,7 +204,6 @@ export default class Header extends React.Component {
               location={{
                 pathname: document.location.pathname + document.location.hash
               }}
-              // onClick={event => headerToggle(event, "link")}
             >
               ABOUT
             </NavHashLink>
@@ -199,11 +220,10 @@ export default class Header extends React.Component {
                 }
               }}
               activeClassName="header__links--selected"
-              // onClick={event => headerToggle(event, "link")}
             >
               MOUNTAIN INDEX
             </NavHashLink>
-            <div>
+            <div className="header__desktop">
               <div
                 className="header__links header__links--display"
                 id="mountain"
@@ -215,7 +235,6 @@ export default class Header extends React.Component {
                   to="/mountain/blue-mountain"
                   className="header__links header__links--sub header__links--display"
                   activeClassName="header__links--selected"
-                  // onClick={event => headerToggle(event, "link")}
                 >
                   Blue Mountain
                 </NavLink>
@@ -223,7 +242,6 @@ export default class Header extends React.Component {
                   to="/mountain/horseshoe-valley"
                   className="header__links header__links--sub header__links--display"
                   activeClassName="header__links--selected"
-                  // onClick={event => headerToggle(event, "link")}
                 >
                   Horseshoe Valley
                 </NavLink>
