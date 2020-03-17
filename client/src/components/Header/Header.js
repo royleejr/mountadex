@@ -24,6 +24,14 @@ export default class Header extends React.Component {
       document
         .getElementById("mountain")
         .addEventListener("click", this.dropDownToggle);
+
+      //added it mouse over and mouse leave instead of click.
+      //   document
+      //     .getElementById("mountain")
+      //     .addEventListener("mouseover", this.dropDownToggle);
+      //   document
+      //     .getElementById("mountain")
+      //     .addEventListener("mouseleave", this.dropDownToggle);
     }
   };
 
@@ -194,16 +202,13 @@ export default class Header extends React.Component {
               to="/#about"
               className="header__links header__links--display"
               isActive={(match, location) => {
-                if (location.pathname === "/#about") {
+                if (window.location.href.split("#")[1] === "about") {
                   return true;
                 } else {
                   return false;
                 }
               }}
               activeClassName="header__links--selected"
-              location={{
-                pathname: document.location.pathname + document.location.hash
-              }}
             >
               ABOUT
             </NavHashLink>

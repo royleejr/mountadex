@@ -13,7 +13,6 @@
   @include breakpoint(tabletL) {
     width: 100vw;
     height: to-rem(90px);
-    background-color: #39a9db;
     transition: 1s ease;
     position: fixed;
     top: 0;
@@ -131,7 +130,7 @@
     }
 
     &:hover {
-      color: blue;
+      color: rgb(81, 107, 136);
     }
   }
 
@@ -168,6 +167,7 @@
 
 #mountain {
   z-index: 20;
+  height: 100%;
 }
 
 input {
