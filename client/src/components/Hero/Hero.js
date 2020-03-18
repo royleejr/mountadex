@@ -32,6 +32,7 @@ export default class Hero extends React.Component {
   render() {
     return (
       <section className="hero">
+        <h1 className="hero__title">Mountadex</h1>
         <div className="hero__container nonparallax">
           <div
             className="hero__layer hero__layer--one parallax"

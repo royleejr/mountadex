@@ -4,6 +4,27 @@
   height: 100vh;
   width: 100vw;
   background-color: rgb(8, 14, 24);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  &__title {
+    @include heading-1-mobile;
+    text-align: center;
+    position: fixed;
+    top: 25%;
+    z-index: 5;
+    color: $navyblue;
+    width: 100%;
+
+    @include breakpoint(tabletS) {
+      @include heading-2;
+    }
+
+    @include breakpoint(desktopS) {
+      @include heading-1;
+    }
+  }
 
   &__container {
     height: 100%;

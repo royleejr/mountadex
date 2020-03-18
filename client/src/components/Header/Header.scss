@@ -35,11 +35,10 @@
   }
 
   &__logo {
-    color: white;
+    color: $navyblue;
     @include body-large-mobile;
     position: absolute;
     top: to-rem(25px);
-    // right: to-rem(28px);
 
     @include breakpoint(tabletL) {
       top: to-rem(35px);
@@ -66,7 +65,7 @@
 
   &__nav {
     margin-top: 50%;
-    color: white;
+    color: $navyblue;
     display: flex;
     flex-direction: column;
 
@@ -131,8 +130,7 @@
     }
 
     &:hover {
-      color: rgb(81, 107, 136);
-      fill: #000;
+      color: $paletteblue;
     }
   }
 
@@ -152,30 +150,31 @@
       display: flex;
       width: 15px;
       height: 18px;
-
-      & > svg {
-        fill: #fff;
-      }
-
-      &:hover {
-        fill: #000;
-      }
+      fill: $navyblue;
     }
+
+    &--hidden {
+      display: none;
+    }
+  }
+
+  &__caret-up {
+    @extend .header__caret-down;
   }
 
   &__sub-container {
     display: flex;
     flex-direction: column;
-    align-items: center;
     margin-top: to-rem(20px);
 
     @include breakpoint(desktopS) {
       position: absolute;
       top: -5px;
       right: 140px;
-      padding-right: to-rem(20px);
+      padding-right: to-rem(42px);
       border-radius: 10px;
       z-index: 19;
+      align-items: flex-end;
     }
 
     &--display {
@@ -188,8 +187,20 @@
 
 #mountain {
   z-index: 20;
-  cursor: pointer;
-  align-items: center;
+
+  @include breakpoint(desktopS) {
+    cursor: pointer;
+    align-items: center;
+
+    &:hover {
+      // fill: rgb(81, 107, 136);
+      color: rgb(81, 107, 136);
+
+      &:hover .header__caret-down {
+        fill: rgb(81, 107, 136);
+      }
+    }
+  }
 }
 
 input {

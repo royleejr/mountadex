@@ -67,6 +67,19 @@ export default class Header extends React.Component {
         }, timer);
         timer += 300;
       });
+      document
+        .getElementById("mountain")
+        .setAttribute("style", "color: rgb(81, 107, 136)");
+      // console.log(document.querySelectorAll(".header__caret-up"));
+      document
+        .querySelector(".header__caret-down")
+        .classList.add("class", "header__caret-down--hidden");
+      document
+        .querySelector(".header__caret-up")
+        .classList.remove("header__caret-down--hidden");
+      document
+        .querySelector(".header__caret-up")
+        .setAttribute("style", "fill: rgb(81, 107, 136)");
     } else {
       let newTimer = 0;
       const subLinks = document.querySelectorAll(".header__links--sub");
@@ -89,6 +102,17 @@ export default class Header extends React.Component {
           item.removeEventListener("click", this.dropDownToggle);
         }
       });
+
+      document
+        .getElementById("mountain")
+        .removeAttribute("style", "color: rgb(81, 107, 136)");
+      document
+        .querySelector(".header__caret-down")
+        .classList.remove("header__caret-down--hidden");
+
+      document
+        .querySelector(".header__caret-up")
+        .classList.add("header__caret-down--hidden");
     }
   };
 
@@ -112,7 +136,7 @@ export default class Header extends React.Component {
       const header = document.querySelector(".header");
       header.setAttribute(
         "style",
-        "position: fixed; height: 100vh; width: 100vw; top:0; bottom:0; left:0; right: 0;"
+        "position: fixed; height: 100vh; width: 100vw; top:0; bottom:0; left:0; right: 0; background-color: rgb(192,211,230);"
       );
       document.getElementById("input").checked = true;
       document.querySelector("nav").classList.remove("header__links--display");
@@ -236,10 +260,40 @@ export default class Header extends React.Component {
                 id="mountain"
               >
                 <p>MOUNTAINS</p>
-                <object
+                <svg
                   className="header__caret-down"
-                  data={downArrow}
-                ></object>
+                  version="1.1"
+                  id="Layer_1"
+                  xmlns="http://www.w3.org/2000/svg"
+                  xmlnsXlink="http://www.w3.org/1999/xlink"
+                  x="0px"
+                  y="0px"
+                  viewBox="0 0 512.011 512.011"
+                  xmlSpace="preserve"
+                >
+                  <path
+                    d="M505.755,123.592c-8.341-8.341-21.824-8.341-30.165,0L256.005,343.176L36.421 123.592c-8.341-8.341-21.824-8.341-30.165,0
+			              s-8.341,21.824,0,30.165l234.667,234.667c4.16,4.16,9.621,6.251 15.083,6.251c5.462,0,10.923-2.091,15.083-6.251l234.667-234.667
+			              C514.096,145.416,514.096,131.933,505.755,123.592z"
+                  />
+                </svg>
+                <svg
+                  version="1.1"
+                  className="header__caret-up header__caret-down--hidden"
+                  id="Capa_1"
+                  xmlns="http://www.w3.org/2000/svg"
+                  xmlnsXlink="http://www.w3.org/1999/xlink"
+                  x="0px"
+                  y="0px"
+                  viewBox="0 0 511.997 511.997"
+                  xmlSpace="preserve"
+                >
+                  <path
+                    d="M508.707,365.621L263.374,130.954c-4.125-3.938-10.625-3.938-14.75,0L3.29,365.621c-3.146,3.01-4.146,7.635-2.521,11.677
+			c1.615,4.052,5.542,6.698,9.896,6.698h42.667c2.729,0,5.354-1.042,7.333-2.927l195.333-185.042l195.333,185.042
+			c1.979,1.885,4.604,2.927,7.333,2.927h42.667c4.354,0,8.281-2.646,9.896-6.698C512.853,373.256,511.853,368.631,508.707,365.621z"
+                  />
+                </svg>
               </div>
               <div className="header__sub-container header__sub-container--display">
                 <NavLink
