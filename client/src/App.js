@@ -9,16 +9,19 @@ import Mountain from "./pages/Mountain/Mountain";
 //styling
 import "./styles/app.scss";
 
-function App() {
-  return (
-    <BrowserRouter>
-      <Header />
-      <Switch>
-        <Route path="/" exact component={Home} />
-        <Route path="/mountain/:mountainName" component={Mountain} />
-      </Switch>
-    </BrowserRouter>
-  );
+class App extends React.Component {
+  render() {
+    console.log(this.hero);
+    return (
+      <BrowserRouter>
+        <Header />
+        <Switch>
+          <Route path="/" exact component={Home} />
+          <Route path="/mountain/:mountainName" component={Mountain} />
+        </Switch>
+      </BrowserRouter>
+    );
+  }
 }
 
 export default App;

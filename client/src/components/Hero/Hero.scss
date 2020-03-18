@@ -22,7 +22,7 @@
     }
 
     @include breakpoint(desktopS) {
-      @include heading-1;
+      @include heading-3;
     }
   }
 

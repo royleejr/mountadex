@@ -49,6 +49,7 @@
     position: absolute;
     top: to-rem(28px);
     right: to-rem(28px);
+    color: rgb(180, 200, 223);
 
     @include breakpoint(tabletS) {
       right: to-rem(36px);
@@ -183,6 +184,13 @@
       }
     }
   }
+
+  &__desktop-color {
+    @include breakpoint(desktopS) {
+      color: $lightblue;
+      fill: $lightblue;
+    }
+  }
 }
 
 #mountain {
@@ -203,6 +211,21 @@
   }
 }
 
+#header__span--light {
+  stroke: $lightblue !important;
+  fill: $lightblue;
+  color: $lightblue;
+  & > div svg {
+    stroke: rgb(180, 200, 223);
+  }
+  &:before {
+    background: $lightblue;
+  }
+  &:after {
+    background: $lightblue;
+  }
+}
+
 input {
   display: none;
   &:checked + label > div {
@@ -211,7 +234,7 @@ input {
       span {
         &:before,
         &:after {
-          background: $white;
+          background: $navyblue;
         }
         &:first-child {
           &:before {
@@ -235,7 +258,7 @@ input {
       stroke-dashoffset: 62;
       stroke-dasharray: 0 82.801 62 82.801;
       transform: rotate(90deg);
-      stroke: #fff;
+      stroke: $navyblue;
       &:nth-child(3) {
         transform: rotate(270deg);
       }
@@ -282,7 +305,7 @@ input {
           width: 47%;
           height: 2px;
           border-radius: 1px;
-          background: $white;
+          background: $navyblue;
           position: absolute;
           -webkit-backface-visibility: hidden;
           transition: transform 0.5s ease, border-radius 0.3s ease,
@@ -303,7 +326,7 @@ input {
     svg {
       display: block;
       fill: none;
-      stroke: $white;
+      stroke: $navyblue;
       stroke-width: 2px;
       width: 44px;
       height: 44px;

@@ -18,7 +18,6 @@ export default class Hero extends React.Component {
   }
 
   handleScroll = event => {
-    // console.log(event)
     let scrollTop =
       document.body.scrollTop || document.documentElement.scrollTop;
 
@@ -27,6 +26,45 @@ export default class Hero extends React.Component {
       const yPos = `-${scrollTop / speed}`;
       item.setAttribute("style", `transform: translate3d(0px, ${yPos}px, 0px)`);
     });
+
+    console.log(scrollTop);
+    if (scrollTop >= 620) {
+      // console.log(document.querySelector("header"));
+      console.log("this happens");
+      document
+        .querySelector(".header__caret-down")
+        .classList.add("header__desktop-color");
+      document
+        .querySelector(".header__nav")
+        .classList.add("header__desktop-color");
+      document.querySelectorAll(".header__span").forEach(item => {
+        item.setAttribute("id", "header__span--light");
+      });
+      document.querySelectorAll(".header__svg").forEach(item => {
+        // item.classList.add("header__span--light");
+        item.setAttribute("style", "stroke: rgb(180, 200, 223);");
+      });
+      document
+        .querySelector(".toggle")
+        .setAttribute("id", "header__span--light");
+    } else {
+      document
+        .querySelector(".header__caret-down")
+        .classList.remove("header__desktop-color");
+      document
+        .querySelector(".header__nav")
+        .classList.remove("header__desktop-color");
+      document.querySelectorAll(".header__span").forEach(item => {
+        item.removeAttribute("id", "header__span--light");
+      });
+      document.querySelectorAll(".header__svg").forEach(item => {
+        // item.classList.add("header__span--light");
+        item.removeAttribute("style", "stroke: rgb(180, 200, 223);");
+      });
+      document
+        .querySelector(".toggle")
+        .removeAttribute("id", "header__span--light");
+    }
   };
 
   render() {

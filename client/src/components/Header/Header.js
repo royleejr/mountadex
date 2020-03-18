@@ -1,8 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import { NavHashLink } from "react-router-hash-link";
-import downArrow from "../../assets/icons/down-arrow.svg";
-import upArrow from "../../assets/icons/up-arrow.svg";
 
 import "./Header.scss";
 
@@ -70,7 +68,6 @@ export default class Header extends React.Component {
       document
         .getElementById("mountain")
         .setAttribute("style", "color: rgb(81, 107, 136)");
-      // console.log(document.querySelectorAll(".header__caret-up"));
       document
         .querySelector(".header__caret-down")
         .classList.add("class", "header__caret-down--hidden");
@@ -177,18 +174,20 @@ export default class Header extends React.Component {
               <label className="toggle" htmlFor="input">
                 <div>
                   <div>
-                    <span></span>
-                    <span></span>
+                    <span className="header__span"></span>
+                    <span className="header__span"></span>
                   </div>
-                  <svg>
+                  <svg className=".header__svg">
                     <use xlinkHref="#path" />
                   </svg>
-                  <svg>
+                  <svg classname=".header__span">
                     <use xlinkHref="#path" />
                   </svg>
                 </div>
               </label>
               <svg
+                className="header__span"
+                // fill="rgb(180, 200, 223);"
                 xmlns="http://www.w3.org/2000/svg"
                 style={{ display: "none" }}
               >
