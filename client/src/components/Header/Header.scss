@@ -122,6 +122,7 @@
         margin-left: to-rem(20px);
         margin-bottom: 5px;
         transition: 0.2s ease-out;
+        z-index: 21;
       }
     }
 
@@ -131,6 +132,7 @@
 
     &:hover {
       color: rgb(81, 107, 136);
+      fill: #000;
     }
   }
 
@@ -140,6 +142,24 @@
       flex-direction: column;
       justify-content: center;
       height: 100%;
+    }
+  }
+
+  &__caret-down {
+    display: none;
+    @include breakpoint(desktopS) {
+      margin-left: 7px;
+      display: flex;
+      width: 15px;
+      height: 18px;
+
+      & > svg {
+        fill: #fff;
+      }
+
+      &:hover {
+        fill: #000;
+      }
     }
   }
 
@@ -155,6 +175,7 @@
       right: 140px;
       padding-right: to-rem(20px);
       border-radius: 10px;
+      z-index: 19;
     }
 
     &--display {
@@ -167,7 +188,8 @@
 
 #mountain {
   z-index: 20;
-  height: 100%;
+  cursor: pointer;
+  align-items: center;
 }
 
 input {

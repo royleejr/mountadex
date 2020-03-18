@@ -1,6 +1,8 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import { NavHashLink } from "react-router-hash-link";
+import downArrow from "../../assets/icons/down-arrow.svg";
+import upArrow from "../../assets/icons/up-arrow.svg";
 
 import "./Header.scss";
 
@@ -26,12 +28,12 @@ export default class Header extends React.Component {
         .addEventListener("click", this.dropDownToggle);
 
       //added it mouse over and mouse leave instead of click.
-      //   document
-      //     .getElementById("mountain")
-      //     .addEventListener("mouseover", this.dropDownToggle);
-      //   document
-      //     .getElementById("mountain")
-      //     .addEventListener("mouseleave", this.dropDownToggle);
+      // document
+      //   .getElementById("mountain")
+      //   .addEventListener("mouseover", this.dropDownToggle);
+      // document
+      //   .getElementById("mountain")
+      //   .addEventListener("mouseleave", this.dropDownToggle);
     }
   };
 
@@ -233,7 +235,11 @@ export default class Header extends React.Component {
                 className="header__links header__links--display"
                 id="mountain"
               >
-                MOUNTAINS
+                <p>MOUNTAINS</p>
+                <object
+                  className="header__caret-down"
+                  data={downArrow}
+                ></object>
               </div>
               <div className="header__sub-container header__sub-container--display">
                 <NavLink
