@@ -149,8 +149,8 @@
     @include breakpoint(desktopS) {
       margin-left: 7px;
       display: flex;
-      width: 15px;
-      height: 18px;
+      width: to-rem(15px);
+      height: to-rem(18px);
       fill: $navyblue;
     }
 
@@ -170,8 +170,8 @@
 
     @include breakpoint(desktopS) {
       position: absolute;
-      top: -5px;
-      right: 140px;
+      top: to-rem(-5px);
+      right: to-rem(140px);
       padding-right: to-rem(42px);
       border-radius: 10px;
       z-index: 19;
@@ -201,9 +201,7 @@
     align-items: center;
 
     &:hover {
-      // fill: rgb(81, 107, 136);
       color: rgb(81, 107, 136);
-
       &:hover .header__caret-down {
         fill: rgb(81, 107, 136);
       }
@@ -212,7 +210,7 @@
 }
 
 #header__span--light {
-  stroke: $lightblue !important;
+  stroke: $lightblue;
   fill: $lightblue;
   color: $lightblue;
   & > div svg {
@@ -303,7 +301,7 @@ input {
           content: "";
           display: block;
           width: 47%;
-          height: 2px;
+          height: to-rem(2px);
           border-radius: 1px;
           background: $navyblue;
           position: absolute;
@@ -327,14 +325,14 @@ input {
       display: block;
       fill: none;
       stroke: $navyblue;
-      stroke-width: 2px;
-      width: 44px;
-      height: 44px;
+      stroke-width: to-rem(2px);
+      width: to-rem(44px);
+      height: to-rem(44px);
       stroke-linecap: round;
       position: absolute;
       left: 50%;
       top: 50%;
-      margin: -22px 0 0 -22px;
+      margin: to-rem(-22px) 0 0 to-rem(-22px);
       stroke-dasharray: 0 82.801 8 82.801;
       stroke-dashoffset: 82.801;
       transform-origin: 50% 50%;

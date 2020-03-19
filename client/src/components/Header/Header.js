@@ -180,7 +180,7 @@ export default class Header extends React.Component {
                   <svg className=".header__svg">
                     <use xlinkHref="#path" />
                   </svg>
-                  <svg classname=".header__span">
+                  <svg className=".header__span">
                     <use xlinkHref="#path" />
                   </svg>
                 </div>

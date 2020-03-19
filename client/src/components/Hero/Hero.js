@@ -1,14 +1,8 @@
 import React from "react";
 
-import SiteDesription from "../MountainDescription/MountainDescription";
-
 import "./Hero.scss";
 
 export default class Hero extends React.Component {
-  state = {
-    scroll: null
-  };
-
   componentDidMount() {
     window.addEventListener("scroll", this.handleScroll);
   }
@@ -20,17 +14,12 @@ export default class Hero extends React.Component {
   handleScroll = event => {
     let scrollTop =
       document.body.scrollTop || document.documentElement.scrollTop;
-
     document.querySelectorAll("[data-speed]").forEach(item => {
       const speed = item.getAttribute("data-speed");
       const yPos = `-${scrollTop / speed}`;
       item.setAttribute("style", `transform: translate3d(0px, ${yPos}px, 0px)`);
     });
-
-    console.log(scrollTop);
     if (scrollTop >= 620) {
-      // console.log(document.querySelector("header"));
-      console.log("this happens");
       document
         .querySelector(".header__caret-down")
         .classList.add("header__desktop-color");
@@ -41,8 +30,7 @@ export default class Hero extends React.Component {
         item.setAttribute("id", "header__span--light");
       });
       document.querySelectorAll(".header__svg").forEach(item => {
-        // item.classList.add("header__span--light");
-        item.setAttribute("style", "stroke: rgb(180, 200, 223);");
+        item.classList.add("header__span--light");
       });
       document
         .querySelector(".toggle")
@@ -58,8 +46,7 @@ export default class Hero extends React.Component {
         item.removeAttribute("id", "header__span--light");
       });
       document.querySelectorAll(".header__svg").forEach(item => {
-        // item.classList.add("header__span--light");
-        item.removeAttribute("style", "stroke: rgb(180, 200, 223);");
+        item.classList.remove("header__span--light");
       });
       document
         .querySelector(".toggle")
@@ -136,7 +123,6 @@ export default class Hero extends React.Component {
             {" "}
           </div>
         </div>
-        {/* <SiteDesription /> */}
       </section>
     );
   }
