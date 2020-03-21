@@ -1,5 +1,352 @@
-@import '../../styles/global.scss';
+@import "../../styles/global.scss";
 
 .header {
+  width: 100vw;
+  height: to-rem(70px);
+  background: transparent;
+  transition: 1s ease;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
 
+  @include breakpoint(tabletL) {
+    width: 100vw;
+    height: to-rem(90px);
+    transition: 1s ease;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+  }
+
+  &__container {
+    height: 100%;
+    @include container;
+
+    @include breakpoint(desktopS) {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+
+  &__top {
+    display: flex;
+  }
+
+  &__logo {
+    color: $navyblue;
+    @include body-large-mobile;
+    position: absolute;
+    top: to-rem(25px);
+
+    @include breakpoint(tabletL) {
+      top: to-rem(35px);
+    }
+  }
+
+  &__menu {
+    position: absolute;
+    top: to-rem(28px);
+    right: to-rem(28px);
+    color: $lightblue;
+
+    @include breakpoint(tabletS) {
+      right: to-rem(36px);
+    }
+
+    @include breakpoint(tabletL) {
+      top: to-rem(38px);
+    }
+
+    @include breakpoint(desktopS) {
+      display: none;
+    }
+  }
+
+  &__nav {
+    margin-top: 50%;
+    color: $navyblue;
+    display: flex;
+    flex-direction: column;
+
+    @include breakpoint(tabletS) {
+      margin-top: 20%;
+    }
+
+    @include breakpoint(tabletL) {
+      margin-top: 15%;
+    }
+
+    @include breakpoint(desktopS) {
+      flex-direction: row;
+      margin-top: 0;
+    }
+  }
+
+  &__links {
+    @include heading-3-mobile;
+    margin-bottom: to-rem(30px);
+    text-decoration: none;
+
+    @include breakpoint(tabletS) {
+      @include heading-3;
+    }
+
+    @include breakpoint(desktopS) {
+      @include body-regular;
+      margin-bottom: 0;
+      margin-left: to-rem(40px);
+      display: flex;
+      align-items: center;
+    }
+
+    &--display {
+      display: none;
+
+      @include breakpoint(desktopS) {
+        display: flex;
+      }
+    }
+
+    &--sub {
+      @include heading-4-mobile;
+      margin-left: to-rem(40px);
+
+      @include breakpoint(tabletS) {
+        @include heading-4;
+      }
+
+      @include breakpoint(desktopS) {
+        @include body-small;
+        margin-left: to-rem(20px);
+        margin-bottom: to-rem(5px);
+        transition: 0.2s ease-out;
+        z-index: 21;
+      }
+    }
+
+    &--selected {
+      text-decoration: underline;
+    }
+
+    &:hover {
+      color: $paletteblue;
+    }
+  }
+
+  &__desktop {
+    @include breakpoint(desktopS) {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      height: 100%;
+    }
+  }
+
+  &__caret-down {
+    display: none;
+    @include breakpoint(desktopS) {
+      margin-left: 7px;
+      display: flex;
+      width: to-rem(15px);
+      height: to-rem(18px);
+      fill: $navyblue;
+    }
+
+    &--hidden {
+      display: none;
+    }
+  }
+
+  &__caret-up {
+    @extend .header__caret-down;
+
+    &--fill {
+      fill: $paletteblue;
+    }
+  }
+
+  &__sub-container {
+    display: flex;
+    flex-direction: column;
+    margin-top: to-rem(20px);
+
+    @include breakpoint(desktopS) {
+      position: absolute;
+      top: to-rem(-5px);
+      right: to-rem(140px);
+      padding-right: to-rem(42px);
+      border-radius: 10px;
+      z-index: 19;
+      align-items: flex-end;
+    }
+
+    &--display {
+      @include breakpoint(desktopS) {
+        display: none;
+      }
+    }
+  }
+
+  &__desktop-color {
+    @include breakpoint(desktopS) {
+      color: $lightblue;
+      fill: $lightblue;
+    }
+  }
+}
+
+#mountain {
+  z-index: 20;
+
+  @include breakpoint(desktopS) {
+    cursor: pointer;
+    align-items: center;
+
+    &:hover {
+      color: $paletteblue;
+      &:hover .header__caret-down {
+        fill: $paletteblue;
+      }
+    }
+  }
+}
+
+#header__span--light {
+  stroke: $lightblue;
+  fill: $lightblue;
+  color: $lightblue;
+  & > div svg {
+    stroke: $lightblue;
+  }
+  &:before {
+    background: $lightblue;
+  }
+  &:after {
+    background: $lightblue;
+  }
+}
+
+input {
+  display: none;
+  &:checked + label > div {
+    div {
+      transform: rotate(90deg);
+      span {
+        &:before,
+        &:after {
+          background: $navyblue;
+        }
+        &:first-child {
+          &:before {
+            transform: rotate(45deg) translate(2.2px, -3px) scaleX(1.05);
+          }
+          &:after {
+            transform: rotate(-45deg) translate(-2.2px, -3px) scaleX(1.05);
+          }
+        }
+        &:last-child {
+          &:before {
+            transform: rotate(-45deg) translate(2.2px, 3px) scaleX(1.05);
+          }
+          &:after {
+            transform: rotate(45deg) translate(-2.2px, 3px) scaleX(1.05);
+          }
+        }
+      }
+    }
+    svg {
+      stroke-dashoffset: 62;
+      stroke-dasharray: 0 82.801 62 82.801;
+      transform: rotate(90deg);
+      stroke: $navyblue;
+      &:nth-child(3) {
+        transform: rotate(270deg);
+      }
+    }
+  }
+}
+.toggle {
+  display: block;
+  cursor: pointer;
+  & > div {
+    width: 20px;
+    height: 14px;
+    position: relative;
+    div {
+      position: absolute;
+      left: 0;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      transition: transform 0.5s ease;
+      span {
+        display: block;
+        position: absolute;
+        left: 0;
+        right: 0;
+        &:first-child {
+          top: 0;
+          &:before,
+          &:after {
+            top: 0;
+          }
+        }
+        &:last-child {
+          bottom: 0;
+          &:before,
+          &:after {
+            bottom: 0;
+          }
+        }
+        &:before,
+        &:after {
+          content: "";
+          display: block;
+          width: 47%;
+          height: to-rem(2px);
+          border-radius: 1px;
+          background: $navyblue;
+          position: absolute;
+          -webkit-backface-visibility: hidden;
+          transition: transform 0.5s ease, border-radius 0.3s ease,
+            background 0.4s ease;
+        }
+        &:before {
+          left: 0;
+          transform-origin: 0 50%;
+          transform: translate(1px, 0) scaleX(1.1);
+        }
+        &:after {
+          right: 0;
+          transform-origin: 100% 50%;
+          transform: translate(-1px, 0) scaleX(1.1);
+        }
+      }
+    }
+    svg {
+      display: block;
+      fill: none;
+      stroke: $navyblue;
+      stroke-width: to-rem(2px);
+      width: to-rem(44px);
+      height: to-rem(44px);
+      stroke-linecap: round;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      margin: to-rem(-22px) 0 0 to-rem(-22px);
+      stroke-dasharray: 0 82.801 8 82.801;
+      stroke-dashoffset: 82.801;
+      transform-origin: 50% 50%;
+      -webkit-backface-visibility: hidden;
+      transform: scale(1);
+      transition: stroke-dashoffset 0.5s ease, stroke-dasharray 0.6s ease,
+        transform 0.5s ease, stroke 0.4s ease;
+      &:nth-child(3) {
+        transform: rotate(180deg) scale(1);
+      }
+    }
+  }
 }

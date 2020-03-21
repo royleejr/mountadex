@@ -6,7 +6,7 @@ import "./SiteDescription.scss";
 
 export default function SiteDescription() {
   return (
-    <section className="site-description">
+    <section id="about" className="site-description">
       <div className="site-description__container">
         <div className="site-description__image-container">
           <img
