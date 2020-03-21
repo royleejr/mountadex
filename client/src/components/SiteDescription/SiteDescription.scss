@@ -1,5 +1,11 @@
-@import '../../styles/global.scss';
+@import "../../styles/global.scss";
 
 .site-description {
-
+  color: red;
+  background-color: rgb(8, 14, 24);
+  width: 100%;
+  height: 100vh;
+  padding-top: to-rem(70px);
+  z-index: 80;
+  position: relative;
 }
