@@ -1,7 +1,119 @@
 @import "../../styles/global.scss";
 
 .mountain-description {
-  height: 100vh;
-  background-color: rgb(1, 23, 45);
   position: relative;
+  height: 100vh;
+  color: $white;
+  background-color: $bluemountainblue7;
+
+  &__container {
+    @include container;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: to-rem(1920px);
+    height: 100%;
+    margin: 0 auto;
+
+    @include breakpoint(desktopS) {
+      flex-direction: row;
+    }
+  }
+
+  &__map-container {
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-top: percentage(4/6);
+    margin-bottom: to-rem(16px);
+
+    @include breakpoint(tabletS) {
+      width: to-rem(696px);
+      height: to-rem(464px);
+      padding-top: 0;
+      margin-bottom: to-rem(24px);
+    }
+
+    @include breakpoint(desktopS) {
+      width: 50%;
+      height: 0;
+      padding-top: percentage((1/1) * 0.5);
+      margin-right: to-rem(64px);
+      margin-bottom: 0;
+    }
+  }
+
+  &__map {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border: 0;
+  }
+
+  &__text-container {
+    text-align: center;
+
+    @include breakpoint(tabletS) {
+      max-width: to-rem(696px);
+    }
+
+    @include breakpoint(desktopS) {
+      width: 50%;
+      max-width: unset;
+      text-align: left;
+    }
+  }
+
+  &__title {
+    @include heading-2-mobile;
+
+    margin-bottom: to-rem(8px);
+
+    @include breakpoint(tabletS) {
+      margin-bottom: to-rem(16px);
+    }
+
+    @include breakpoint(desktopS) {
+      @include heading-2;
+    }
+  }
+
+  &__location {
+    @include heading-4-mobile;
+
+    margin-bottom: to-rem(16px);
+
+    @include breakpoint(tabletS) {
+      margin-bottom: to-rem(24px);
+    }
+
+    @include breakpoint(desktopS) {
+      @include heading-4;
+    }
+  }
+
+  &__description {
+    @include body-regular-mobile;
+
+    margin-bottom: to-rem(32px);
+
+    @include breakpoint(tabletS) {
+      margin-bottom: to-rem(40px);
+    }
+
+    @include breakpoint(desktopS) {
+      @include body-regular;
+
+      margin-bottom: to-rem(48px);
+    }
+  }
+
+  &__button {
+    @include button-blue-mountain-primary;
+  }
 }
