@@ -16,59 +16,30 @@
   }
 }
 
-@mixin button-primary-1 {
+@mixin button-blue-mountain-primary {
   @include _button-base;
 
   background-color: transparent;
-  color: blue;
-  border-color: blue;
+  color: $white;
+  border-color: $white;
 
   &:hover,
   &:focus {
-    color: lightblue;
-    border-color: lightblue;
+    color: $bluemountainblue1;
+    border-color: $bluemountainblue1;
   }
 }
 
-@mixin button-secondary-1 {
+@mixin button-blue-mountain-secondary {
   @include _button-base;
 
-  background-color: blue;
-  color: white;
-  border-color: blue;
+  background-color: $white;
+  color: $bluemountainblue5;
+  border-color: $white;
 
   &:hover,
   &:focus {
-    background-color: lightblue;
-    color: white;
-    border-color: lightblue;
-  }
-}
-
-@mixin button-primary-2 {
-  @include _button-base;
-
-  background-color: transparent;
-  color: white;
-  border-color: white;
-
-  &:hover,
-  &:focus {
-    color: lightblue;
-    border-color: lightblue;
-  }
-}
-
-@mixin button-secondary-2 {
-  @include _button-base;
-
-  background-color: white;
-  color: blue;
-  border-color: white;
-
-  &:hover,
-  &:focus {
-    background-color: lightblue;
-    border-color: lightblue;
+    background-color: $bluemountainblue1;
+    border-color: $bluemountainblue1;
   }
 }
