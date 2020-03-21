@@ -1,5 +1,7 @@
-@import '../../styles/global.scss';
+@import "../../styles/global.scss";
 
 .mountain-description {
-
+  height: 100vh;
+  background-color: rgb(1, 23, 45);
+  position: relative;
 }

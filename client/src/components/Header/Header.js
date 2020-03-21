@@ -294,11 +294,11 @@ export default class Header extends React.Component {
                   Blue Mountain
                 </NavLink>
                 <NavLink
-                  to="/mountain/horseshoe-valley"
+                  to="/mountain/horseshoe-resort"
                   className="header__links header__links--sub header__links--display"
                   activeClassName="header__links--selected"
                 >
-                  Horseshoe Valley
+                  Horseshoe Resort
                 </NavLink>
               </div>
             </div>
