@@ -24,14 +24,6 @@ export default class Header extends React.Component {
       document
         .getElementById("mountain")
         .addEventListener("click", this.dropDownToggle);
-
-      //added it mouse over and mouse leave instead of click.
-      // document
-      //   .getElementById("mountain")
-      //   .addEventListener("mouseover", this.dropDownToggle);
-      // document
-      //   .getElementById("mountain")
-      //   .addEventListener("mouseleave", this.dropDownToggle);
     }
   };
 
@@ -76,7 +68,7 @@ export default class Header extends React.Component {
         .classList.remove("header__caret-down--hidden");
       document
         .querySelector(".header__caret-up")
-        .setAttribute("style", "fill: rgb(81, 107, 136)");
+        .classList.add("header__caret-up--fill");
     } else {
       let newTimer = 0;
       const subLinks = document.querySelectorAll(".header__links--sub");
@@ -102,7 +94,7 @@ export default class Header extends React.Component {
 
       document
         .getElementById("mountain")
-        .removeAttribute("style", "color: rgb(81, 107, 136)");
+        .classList.remove("header__caret-up--fill");
       document
         .querySelector(".header__caret-down")
         .classList.remove("header__caret-down--hidden");
@@ -187,7 +179,6 @@ export default class Header extends React.Component {
               </label>
               <svg
                 className="header__span"
-                // fill="rgb(180, 200, 223);"
                 xmlns="http://www.w3.org/2000/svg"
                 style={{ display: "none" }}
               >

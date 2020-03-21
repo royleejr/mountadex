@@ -3,7 +3,7 @@
 .hero {
   height: 100vh;
   width: 100vw;
-  background-color: rgb(8, 14, 24);
+  background-color: $navyblue;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -44,7 +44,7 @@
     }
 
     &--two {
-      background-image: url("../../assets/hero-parallax/L_1.png");
+      background-image: url("../../assets/hero-parallax/L_1_r1.png");
     }
 
     &--three {
