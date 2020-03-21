@@ -1,6 +1,6 @@
 import React from "react";
 
-import "./MountainHeroHorseShoeValley.scss";
+import "./MountainHeroHorseShoeResort.scss";
 
 export default class extends React.Component {
   render() {
