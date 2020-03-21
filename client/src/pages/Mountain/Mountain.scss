@@ -1,4 +1,6 @@
 @import "../../styles/global.scss";
 
 .mountain {
+  overflow: hidden;
+  margin-top: to-rem(70px);
 }
