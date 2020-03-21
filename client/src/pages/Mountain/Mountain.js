@@ -1,6 +1,6 @@
 import React from "react";
 import MountainHeroBlueMountain from "../../components/MountainHeroBlueMountain/MountainHeroBlueMountain";
-import MountainHeroHorseShoeResort from "../../components/MountainHeroHorseShoeResort/MountainHeroHorseShoeResort";
+import MountainHeroHorseshoeResort from "../../components/MountainHeroHorseshoeResort/MountainHeroHorseshoeResort";
 import MountainDescription from "../../components/MountainDescription/MountainDescription";
 import data from "../../data/data.json";
 import "./Mountain.scss";
@@ -16,7 +16,7 @@ export default class Mountain extends React.Component {
           </>
         );
       case "horseshoe-resort":
-        return <MountainHeroHorseShoeResort />;
+        return <MountainHeroHorseshoeResort />;
       default:
         return <p>No mountain found</p>;
     }
