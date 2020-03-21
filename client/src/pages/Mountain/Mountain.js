@@ -17,6 +17,8 @@ export default class Mountain extends React.Component {
         );
       case "horseshoe-resort":
         return <MountainHeroHorseShoeResort />;
+      default:
+        return <p>No mountain found</p>;
     }
   };
 
