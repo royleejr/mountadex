@@ -1,7 +1,9 @@
 @import "../../styles/global.scss";
 
 .mountain-description {
+  position: relative;
   height: 100vh;
+  background-color: $navyblue;
 
   &__container {
     @include container;
