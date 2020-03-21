@@ -3,7 +3,7 @@
 .site-description {
   position: relative;
   height: 100vh;
-  background-color: rgb(8, 14, 24);
+  background-color: $navyblue;
 
   &__container {
     @include container;
@@ -70,6 +70,7 @@
   &__title {
     @include heading-2-mobile;
 
+    color: $lightblue;
     margin-bottom: to-rem(8px);
 
     @include breakpoint(tabletS) {
@@ -85,6 +86,8 @@
 
   &__description {
     @include body-regular-mobile;
+
+    color: $skyblue;
 
     @include breakpoint(desktopS) {
       @include body-regular;
