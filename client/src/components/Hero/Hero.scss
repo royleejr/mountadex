@@ -40,38 +40,67 @@
     position: fixed;
 
     &--one {
-      background-image: url("../../assets/hero-parallax/L_0.png");
+      background-image: url("../../assets/hero-parallax/M_1.png");
+      @include breakpoint(desktopS) {
+        background-image: url("../../assets/hero-parallax/L_0.png");
+      }
     }
 
     &--two {
-      background-image: url("../../assets/hero-parallax/L_1_r1.png");
+      background-image: url("../../assets/hero-parallax/M_2.png");
+      @include breakpoint(desktopS) {
+        background-image: url("../../assets/hero-parallax/L_1_r1.png");
+      }
     }
 
     &--three {
-      background-image: url("../../assets/hero-parallax/L_2.png");
+      background-image: url("../../assets/hero-parallax/M_3.png");
+      @include breakpoint(desktopS) {
+        background-image: url("../../assets/hero-parallax/L_2.png");
+      }
     }
 
     &--four {
-      background-image: url("../../assets/hero-parallax/L_3.png");
+      display: none;
+      @include breakpoint(desktopS) {
+        display: block;
+        background-image: url("../../assets/hero-parallax/L_3.png");
+      }
     }
 
     &--five {
-      background-image: url("../../assets/hero-parallax/L_4.png");
+      background-image: url("../../assets/hero-parallax/M_4.png");
+      @include breakpoint(desktopS) {
+        background-image: url("../../assets/hero-parallax/L_4.png");
+      }
     }
 
     &--six {
-      background-image: url("../../assets/hero-parallax/L_5.png");
+      background-image: url("../../assets/hero-parallax/M_5.png");
+      @include breakpoint(desktopS) {
+        background-image: url("../../assets/hero-parallax/L_5.png");
+      }
     }
 
     &--seven {
-      background-image: url("../../assets/hero-parallax/L_6.png");
+      background-image: url("../../assets/hero-parallax/M_6.png");
+      @include breakpoint(desktopS) {
+        background-image: url("../../assets/hero-parallax/L_6.png");
+      }
     }
 
     &--eight {
-      background-image: url("../../assets/hero-parallax/L_7.png");
+      background-image: url("../../assets/hero-parallax/M_7.png");
+      @include breakpoint(desktopS) {
+        background-image: url("../../assets/hero-parallax/L_7.png");
+      }
     }
     &--nine {
-      background-image: url("../../assets/hero-parallax/L_8.png");
+      display: none;
+      @include breakpoint(desktopS) {
+        display: block;
+        background-image: url("../../assets/hero-parallax/L_8.png");
+      }
     }
   }
 }

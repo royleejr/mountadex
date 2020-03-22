@@ -14,6 +14,7 @@ export default class Hero extends React.Component {
   handleScroll = event => {
     let scrollTop =
       document.body.scrollTop || document.documentElement.scrollTop;
+
     document.querySelectorAll("[data-speed]").forEach(item => {
       const speed = item.getAttribute("data-speed");
       const yPos = `-${scrollTop / speed}`;
