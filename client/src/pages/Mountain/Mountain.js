@@ -1,8 +1,8 @@
 import React from "react";
-
 import MountainHeroBlueMountain from "../../components/MountainHeroBlueMountain/MountainHeroBlueMountain";
 import MountainHeroHorseshoeResort from "../../components/MountainHeroHorseshoeResort/MountainHeroHorseshoeResort";
 import MountainDescription from "../../components/MountainDescription/MountainDescription";
+import data from "../../data/data.json";
 import "./Mountain.scss";
 
 export default class Mountain extends React.Component {
@@ -13,7 +13,6 @@ export default class Mountain extends React.Component {
       case "blue-mountain":
         return <MountainHeroBlueMountain />;
       case "horseshoe-resort":
-        console.log("this is happening");
         return <MountainHeroHorseshoeResort />;
       default:
         return <p>No mountain found</p>;
@@ -21,10 +20,14 @@ export default class Mountain extends React.Component {
   };
 
   render() {
+    const mountainData = data.find(
+      mountain => mountain.url === this.props.match.params.mountainName
+    );
+
     return (
       <main className="mountain">
         {this.mountain()}
-        <MountainDescription />
+        <MountainDescription mountainData={mountainData} />
       </main>
     );
   }

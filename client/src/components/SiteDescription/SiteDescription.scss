@@ -3,6 +3,7 @@
 .site-description {
   position: relative;
   height: 100vh;
+  color: $skyblue;
   background-color: $navyblue;
 
   &__container {
@@ -29,14 +30,15 @@
     margin-bottom: to-rem(16px);
 
     @include breakpoint(tabletS) {
-      max-width: to-rem(696px);
-      padding-top: calc((4 / 6) * to-rem(696px));
+      width: to-rem(696px);
+      height: to-rem(464px);
+      padding-top: 0;
       margin-bottom: to-rem(24px);
     }
 
     @include breakpoint(desktopS) {
       width: 50%;
-      max-width: unset;
+      height: 0;
       padding-top: percentage((1/1) * 0.5);
       margin-right: to-rem(64px);
       margin-bottom: 0;
@@ -70,7 +72,6 @@
   &__title {
     @include heading-2-mobile;
 
-    color: $lightblue;
     margin-bottom: to-rem(8px);
 
     @include breakpoint(tabletS) {
@@ -86,8 +87,6 @@
 
   &__description {
     @include body-regular-mobile;
-
-    color: $skyblue;
 
     @include breakpoint(desktopS) {
       @include body-regular;
