@@ -8,13 +8,10 @@ import "./Mountain.scss";
 export default class Mountain extends React.Component {
   mountain = () => {
     const route = this.props.match.params.mountainName;
+    console.log(route);
     switch (route) {
       case "blue-mountain":
-        return (
-          <>
-            <MountainHeroBlueMountain />
-          </>
-        );
+        return <MountainHeroBlueMountain />;
       case "horseshoe-resort":
         return <MountainHeroHorseshoeResort />;
       default:

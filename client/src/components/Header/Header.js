@@ -38,6 +38,10 @@ export default class Header extends React.Component {
     );
   };
 
+  scrollToTop = () => {
+    window.scrollTo(0, 0);
+  };
+
   classToggle = () => {
     if (this.state.dropDown) {
       document
@@ -50,6 +54,7 @@ export default class Header extends React.Component {
       document.querySelectorAll(".header__links--sub").forEach(item => {
         item.setAttribute("style", "transform: translateY(60px); opacity: 0;");
         setTimeout(() => {
+          item.addEventListener("click", this.scrollToTop);
           item.setAttribute(
             "style",
             "transform: translateY(40px); opacity: 1;"
@@ -74,6 +79,7 @@ export default class Header extends React.Component {
       const subLinks = document.querySelectorAll(".header__links--sub");
       subLinks.forEach((item, index) => {
         setTimeout(() => {
+          item.removeEventListener("click", this.scrollToTop);
           item.setAttribute("style", "transform: translateY(20px); opacity:0;");
         }, newTimer);
         newTimer += 300;
