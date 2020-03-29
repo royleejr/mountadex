@@ -21,6 +21,7 @@ export default class Hero extends React.Component {
       item.setAttribute("style", `transform: translate3d(0px, ${yPos}px, 0px)`);
     });
     if (scrollTop >= 620) {
+      // document.querySelector(".header").classList.add("header--background-color");
       document
         .querySelector(".header__caret-down")
         .classList.add("header__desktop-color");
@@ -37,6 +38,9 @@ export default class Hero extends React.Component {
         .querySelector(".toggle")
         .setAttribute("id", "header__span--light");
     } else {
+      // document
+      //   .querySelector(".header")
+      //   .classList.remove("header__desktop-color");
       document
         .querySelector(".header__caret-down")
         .classList.remove("header__desktop-color");

@@ -1,5 +1,46 @@
-@import '../../styles/global.scss';
+@import "../../styles/global.scss";
 
 .site-index {
+  height: 100vh;
+  position: relative;
+  background: $paletteblue;
 
+  &__carousel {
+    display: flex;
+    position: relative;
+    width: 100vw;
+    margin-bottom: 100px;
+    overflow-x: hidden;
+    height: 350px;
+    top: 25%;
+  }
+
+  &__box {
+    width: 300px;
+    height: 350px;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    opacity: 0.8;
+    color: white;
+    font-size: 3rem;
+    margin-right: 30px;
+    position: absolute;
+    box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.37);
+
+    &--0 {
+      background-image: url("../../assets/blue-mountain/blue-mountain_mobile.jpg");
+      transform: translate3d(200%, 0%, 0);
+    }
+
+    &--1 {
+      background-image: url("../../assets/horseshoe-valley/horseshoe-resort_mobile.jpg");
+      transform: translate3d(325%, 0%, 0);
+    }
+  }
 }
