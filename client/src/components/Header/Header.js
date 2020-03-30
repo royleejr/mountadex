@@ -130,7 +130,7 @@ export default class Header extends React.Component {
     const header = document.querySelector(".header");
     if (this.state.toggle) {
       header.classList.add("header--transition");
-      header.classList.add("header--expand");
+      header.setAttribute("id", "header--expand");
       document.getElementById("input").checked = true;
       document.querySelector("nav").classList.remove("header__links--display");
       let timer = 150;
@@ -148,8 +148,8 @@ export default class Header extends React.Component {
     } else {
       setTimeout(() => {
         header.classList.remove("header--transition");
-      }, 500);
-      document.querySelector(".header").classList.remove("header--expand");
+      }, 1000);
+      document.querySelector(".header").removeAttribute("id", "header--expand");
       document.getElementById("input").checked = false;
       document.querySelector("nav").classList.add("header__links--display");
       document.querySelectorAll(".header__links").forEach(item => {
