@@ -14,7 +14,7 @@ export default class Hero extends React.Component {
   handleScroll = event => {
     let scrollTop =
       document.body.scrollTop || document.documentElement.scrollTop;
-
+    console.log(scrollTop);
     document.querySelectorAll("[data-speed]").forEach(item => {
       const speed = item.getAttribute("data-speed");
       const yPos = `-${scrollTop / speed}`;
@@ -61,7 +61,7 @@ export default class Hero extends React.Component {
 
   render() {
     return (
-      <section className="hero">
+      <section className="hero" id="home">
         <div className="hero__container nonparallax">
           <div
             className="hero__layer hero__layer--one parallax"

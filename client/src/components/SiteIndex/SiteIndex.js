@@ -2,6 +2,7 @@ import React from "react";
 
 import "./SiteIndex.scss";
 
+var timeout = null;
 export default class SiteIndex extends React.Component {
   state = {
     checked: 1
@@ -9,20 +10,33 @@ export default class SiteIndex extends React.Component {
 
   componentDidMount() {
     this.rotate();
+    // this.startCarousel();
+  }
+
+  componentWillUnmount() {
+    clearInterval(timeout);
   }
 
   startCarousel = () => {
-    const allDivs = document.querySelectorAll(".box");
-    let timeout = setInterval(() => {
-      // console.log('this is HAPP')
+    const allDivs = document.querySelectorAll(".site-index__box");
+    timeout = setInterval(() => {
+      console.log("thisis happening", allDivs.length, this.state.checked);
       if (this.state.checked + 1 === allDivs.length) {
-        this.setState({
-          checked: 0
-        });
+        this.setState(
+          {
+            checked: 0
+          },
+          () => {
+            this.rotate();
+          }
+        );
       } else {
-        this.setState({
-          checked: this.state.checked + 1
-        });
+        this.setState(
+          {
+            checked: this.state.checked + 1
+          },
+          () => this.rotate()
+        );
       }
     }, 3000);
   };
@@ -88,7 +102,7 @@ export default class SiteIndex extends React.Component {
 
   render() {
     return (
-      <section className="site-index">
+      <section className="site-index" id="index">
         <div className="site-index__carousel">
           <div
             className="site-index__box site-index__box--0"
