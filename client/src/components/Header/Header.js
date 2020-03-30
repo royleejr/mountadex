@@ -52,7 +52,7 @@ export default class Header extends React.Component {
       });
       let timer = 0;
       document.querySelectorAll(".header__links--sub").forEach(item => {
-        item.setAttribute("style", "transform: translateY(60px); opacity: 0;");
+        item.setAttribute("style", "transform: translateY(60px); opacity: 0; ");
         setTimeout(() => {
           item.addEventListener("click", this.scrollToTop);
           item.setAttribute(
@@ -127,12 +127,10 @@ export default class Header extends React.Component {
   };
 
   expand = () => {
+    const header = document.querySelector(".header");
     if (this.state.toggle) {
-      const header = document.querySelector(".header");
-      header.setAttribute(
-        "style",
-        "position: fixed; height: 100vh; width: 100vw; top:0; bottom:0; left:0; right: 0; background-color: rgb(192,211,230);"
-      );
+      header.classList.add("header--transition");
+      header.classList.add("header--expand");
       document.getElementById("input").checked = true;
       document.querySelector("nav").classList.remove("header__links--display");
       let timer = 150;
@@ -148,7 +146,10 @@ export default class Header extends React.Component {
         timer += 150;
       });
     } else {
-      document.querySelector(".header").removeAttribute("style");
+      setTimeout(() => {
+        header.classList.remove("header--transition");
+      }, 500);
+      document.querySelector(".header").classList.remove("header--expand");
       document.getElementById("input").checked = false;
       document.querySelector("nav").classList.add("header__links--display");
       document.querySelectorAll(".header__links").forEach(item => {

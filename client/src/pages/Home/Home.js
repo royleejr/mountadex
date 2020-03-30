@@ -7,9 +7,13 @@ import SiteIndex from "../../components/SiteIndex/SiteIndex";
 import "./Home.scss";
 
 export default class Home extends React.Component {
+  componentDidMount() {
+    this.props.pageLocation("home");
+  }
+
   render() {
     return (
-      <main className="home" id="home">
+      <main className="home">
         <Hero />
         <SiteDescription />
         <SiteIndex />

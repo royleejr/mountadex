@@ -11,9 +11,13 @@ export default class Mountain extends React.Component {
     console.log(route);
     switch (route) {
       case "blue-mountain":
-        return <MountainHeroBlueMountain />;
+        return (
+          <MountainHeroBlueMountain pageLocation={this.props.pageLocation} />
+        );
       case "horseshoe-resort":
-        return <MountainHeroHorseshoeResort />;
+        return (
+          <MountainHeroHorseshoeResort pageLocation={this.props.pageLocation} />
+        );
       default:
         return <p>No mountain found</p>;
     }
