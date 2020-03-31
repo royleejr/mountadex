@@ -151,7 +151,7 @@ export default class SiteIndex extends React.Component {
             1
           </div>
           <div
-            className="site-index__box site-index__box--0"
+            className="site-index__box site-index__box--3"
             onClick={() => this.position(2)}
           >
             2
