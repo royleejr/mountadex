@@ -88,7 +88,7 @@ export default class Header extends React.Component {
             document
               .querySelector(".header__sub-container")
               .classList.add("header__sub-container--display");
-          }, 400);
+          }, 700);
         }
       });
 
@@ -298,6 +298,13 @@ export default class Header extends React.Component {
                   activeClassName="header__links--selected"
                 >
                   Blue Mountain
+                </NavLink>
+                <NavLink
+                  to="/mountain/st-louis-moonstone"
+                  className="header__links header__links--sub header__links--display"
+                  activeClassName="header__links--selected"
+                >
+                  St. Louis Moonstone
                 </NavLink>
                 <NavLink
                   to="/mountain/horseshoe-resort"
