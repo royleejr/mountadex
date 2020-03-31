@@ -3,9 +3,17 @@
     "url": "blue-mountain",
     "name": "Blue Mountain",
     "location": "Ontario, Canada",
-    "description": "Blue Mountain is the third-busiest ski resort in the country, ranking after Whistler-Blackcomb in British Columbia and Mont Tremblant in Quebec. It is one of the most popular destinations among skiers from Southern Ontario and features high-speed lifts, freestyle terrains, ice skating trail, and a beautiful residential village at its base.",
+    "description": "Blue Mountain is the third-busiest ski resort in the country, ranking after Whistler-Blackcomb in British Columbia and Mont Tremblant in Quebec. It is one of the most popular destinations among skiers from Southern Ontario and features high-speed lifts, freestyle terrains, an ice skating trail, and a beautiful residential village at its base.",
     "officialWebsiteLink": "https://www.bluemountain.ca/",
     "googleMapsLink": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d11382.393874048164!2d-80.33272390969091!3d44.50289371561986!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x882a70d72afb3245%3A0x69d4c00d87c251ab!2sBlue%20Mountain%20Resort!5e0!3m2!1sen!2sca!4v1584236238875!5m2!1sen!2sca"
+  },
+  {
+    "url": "st-louis-moonstone",
+    "name": "Mount St. Louis Moonstone",
+    "location": "Ontario, Canada",
+    "description": "Mount St. Louis Moonstone is a popular destination among Toronto skiers and snowboarders, as it is located only an hour away from the city. The ski resort offers daytime and night skiing on 40 runs and features 13 lifts. It is one of the biggest family-owned ski resorts in the province.",
+    "officialWebsiteLink": "https://mountstlouis.com/",
+    "googleMapsLink": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2839.5091711079635!2d-79.67202538439456!3d44.62750937909991!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4d2ab660314b7bc3%3A0x8256469ab5b91ca1!2sMount%20St.%20Louis%20Moonstone!5e0!3m2!1sen!2sca!4v1585623168407!5m2!1sen!2sca"
   },
   {
     "url": "horseshoe-resort",
