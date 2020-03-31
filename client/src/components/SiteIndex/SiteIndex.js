@@ -66,7 +66,10 @@ export default class SiteIndex extends React.Component {
     const end = this.state.checked + middle;
     const stop = this.state.checked - middle;
     let position = -50;
-    let positionEnd = -160;
+    let positionEnd = -175;
+    if (this.props.windowWidth <= 768) {
+      positionEnd = -160;
+    }
     let newI = 0;
     let newNegativeI = allDivs.length - 1;
     let zIndex = 20;
@@ -165,10 +168,11 @@ export default class SiteIndex extends React.Component {
           >
             4
           </div>
-          <div className="site-index__sky"></div>
-          <div className="site-index__shadow"></div>
-          <div className="site-index__trail"></div>
         </div>
+        <div className="site-index__sky"></div>
+        <div className="site-index__shadow"></div>
+        <div className="site-index__person"></div>
+        <div className="site-index__ground"></div>
       </section>
     );
   }
