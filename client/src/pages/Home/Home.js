@@ -16,7 +16,7 @@ export default class Home extends React.Component {
       <main className="home">
         <Hero />
         <SiteDescription />
-        <SiteIndex />
+        <SiteIndex windowWidth={this.props.windowWidth} />
       </main>
     );
   }

@@ -9,10 +9,11 @@ import Mountain from "./pages/Mountain/Mountain";
 //styling
 import "./styles/app.scss";
 
-var windowHeight;
 class App extends React.Component {
   state = {
-    page: "home"
+    page: "home",
+    windowHeight: null,
+    windowWidth: null
   };
 
   componentDidMount() {
@@ -27,14 +28,16 @@ class App extends React.Component {
   }
 
   size = () => {
-    windowHeight = window.innerHeight;
+    this.setState({
+      windowHeight: window.innerHeight,
+      windowWidth: window.innerWidth
+    });
   };
 
   handleScroll = () => {
-    // console.log(this.state.page);
     let scrollTop =
       document.body.scrollTop || document.documentElement.scrollTop;
-    if (scrollTop <= windowHeight)
+    if (scrollTop <= this.state.windowHeight)
       document.querySelectorAll("[data-speed]").forEach(item => {
         const speed = item.getAttribute("data-speed");
         const yPos = `-${scrollTop / speed}`;
@@ -46,8 +49,12 @@ class App extends React.Component {
 
     //currently have 3 different only because I know I will
     //want to have different classes for each page
+    console.log(scrollTop, this.state.windowHeight);
     if (this.state.page === "home") {
-      if (scrollTop >= windowHeight - 60) {
+      if (
+        scrollTop >= this.state.windowHeight - 60 &&
+        scrollTop < this.state.windowHeight * 2 - 70
+      ) {
         document
           .querySelector(".header")
           .classList.add("header--background-color");
@@ -89,7 +96,7 @@ class App extends React.Component {
     }
 
     if (this.state.page === "blue-mountain") {
-      if (scrollTop >= windowHeight - 100) {
+      if (scrollTop >= this.state.windowHeight - 100) {
         document
           .querySelector(".header__caret-down")
           .classList.add("header__desktop-color");
@@ -125,7 +132,7 @@ class App extends React.Component {
     }
 
     if (this.state.page === "horseshoe-resort") {
-      if (scrollTop >= windowHeight - 100) {
+      if (scrollTop >= this.state.windowHeight - 100) {
         document
           .querySelector(".header__caret-down")
           .classList.add("header__desktop-color");
@@ -168,6 +175,7 @@ class App extends React.Component {
   };
 
   render() {
+    console.log(this.state.windowWidth);
     return (
       <BrowserRouter>
         <Header />
@@ -176,7 +184,11 @@ class App extends React.Component {
             path="/"
             exact
             render={props => (
-              <Home {...props} pageLocation={this.pageLocation} />
+              <Home
+                {...props}
+                pageLocation={this.pageLocation}
+                windowWidth={this.state.windowWidth}
+              />
             )}
           />
           <Route

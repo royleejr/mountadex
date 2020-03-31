@@ -13,6 +13,13 @@ export default class SiteIndex extends React.Component {
     // this.startCarousel();
   }
 
+  componentDidUpdate(prevProps, prevState) {
+    console.log(prevProps, prevState);
+    if (prevProps.windowWidth !== this.props.windowWidth) {
+      this.rotate();
+    }
+  }
+
   componentWillUnmount() {
     clearInterval(timeout);
   }
@@ -53,47 +60,71 @@ export default class SiteIndex extends React.Component {
   };
 
   rotate = () => {
+    console.log(this.props.windowWidth);
     const allDivs = document.querySelectorAll(".site-index__box");
     const middle = Math.floor(allDivs.length / 2);
     const end = this.state.checked + middle;
     const stop = this.state.checked - middle;
-    let position = 175;
-    let positionEnd = 50;
+    let position = -50;
+    let positionEnd = -160;
     let newI = 0;
     let newNegativeI = allDivs.length - 1;
     let zIndex = 20;
     for (let i = this.state.checked; i <= end; i++) {
       if (!allDivs[i]) {
+        console.log(allDivs[newI]);
         allDivs[newI].setAttribute(
           "style",
           `transform: translate3d(${position}%,0%,0); z-index: ${zIndex}; transition: 1s ease-in-out;`
         );
-        position += 125;
+        if (this.props.windowWidth && this.props.windowWidth <= 768) {
+          position += 110;
+        } else {
+          position += 125;
+        }
         newI++;
         zIndex--;
       } else {
+        console.log(allDivs[i]);
         allDivs[i].setAttribute(
           "style",
           `transform: translate3d(${position}%,0%,0); z-index: ${zIndex}; transition: 1s ease-in-out;`
         );
-        position += 125;
+        if (this.props.windowWidth && this.props.windowWidth <= 768) {
+          position += 110;
+        } else {
+          position += 125;
+        }
         zIndex--;
       }
     }
     for (let i = this.state.checked - 1; i >= stop; i--) {
       if (allDivs[i]) {
+        console.log("this is width", this.props.windowWidth);
+        console.log(allDivs[i]);
         allDivs[i].setAttribute(
           "style",
           `transform: translate3d(${positionEnd}%,0%,0); z-index: ${zIndex}; transition: 1s ease-in-out;`
         );
-        positionEnd += -125;
+        if (this.props.windowWidth && this.props.windowWidth <= 768) {
+          console.log("100");
+          positionEnd += -110;
+        } else {
+          positionEnd += -125;
+          console.log("125");
+        }
         zIndex--;
       } else {
+        console.log(allDivs[newNegativeI]);
         allDivs[newNegativeI].setAttribute(
           "style",
           `transform: translate3d(${positionEnd}%,0%,0); z-index: ${zIndex}; transition: 1s ease-in-out;`
         );
-        positionEnd += -125;
+        if (this.props.windowWidth && this.props.windowWidth <= 768) {
+          positionEnd += -110;
+        } else {
+          positionEnd += -125;
+        }
         newNegativeI--;
         zIndex--;
       }
@@ -107,15 +138,36 @@ export default class SiteIndex extends React.Component {
           <div
             className="site-index__box site-index__box--0"
             onClick={() => this.position(0)}
-          ></div>
+          >
+            0
+          </div>
           <div
             className="site-index__box site-index__box--1"
             onClick={() => this.position(1)}
-          ></div>
-          {/* <div
+          >
+            1
+          </div>
+          <div
             className="site-index__box site-index__box--0"
             onClick={() => this.position(2)}
-          ></div> */}
+          >
+            2
+          </div>
+          <div
+            className="site-index__box site-index__box--1"
+            onClick={() => this.position(3)}
+          >
+            3
+          </div>
+          <div
+            className="site-index__box site-index__box--0"
+            onClick={() => this.position(4)}
+          >
+            4
+          </div>
+          <div className="site-index__sky"></div>
+          <div className="site-index__shadow"></div>
+          <div className="site-index__trail"></div>
         </div>
       </section>
     );
