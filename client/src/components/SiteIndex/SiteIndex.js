@@ -50,18 +50,23 @@ export default class SiteIndex extends React.Component {
   };
 
   position = num => {
-    this.setState(
-      {
-        checked: num
-      },
-      () => {
-        this.rotate();
-      }
-    );
+    console.log("this is wahts pressed", num);
+    console.log("this is whats state", this.state.checked);
+    if (num === this.state.checked) {
+      this.changeBackground(num);
+    } else {
+      this.setState(
+        {
+          checked: num
+        },
+        () => {
+          this.rotate();
+        }
+      );
+    }
   };
 
   rotate = () => {
-    console.log(this.props.windowWidth);
     const allDivs = document.querySelectorAll(".site-index__box");
     const middle = Math.floor(allDivs.length / 2);
     const end = this.state.checked + middle;
@@ -76,7 +81,6 @@ export default class SiteIndex extends React.Component {
     let zIndex = 20;
     for (let i = this.state.checked; i <= end; i++) {
       if (!allDivs[i]) {
-        console.log(allDivs[newI]);
         allDivs[newI].setAttribute(
           "style",
           `transform: translate3d(${position}%,0%,0); z-index: ${zIndex}; transition: 1s ease-in-out;`
@@ -89,7 +93,6 @@ export default class SiteIndex extends React.Component {
         newI++;
         zIndex--;
       } else {
-        console.log(allDivs[i]);
         allDivs[i].setAttribute(
           "style",
           `transform: translate3d(${position}%,0%,0); z-index: ${zIndex}; transition: 1s ease-in-out;`
@@ -104,22 +107,17 @@ export default class SiteIndex extends React.Component {
     }
     for (let i = this.state.checked - 1; i >= stop; i--) {
       if (allDivs[i]) {
-        console.log("this is width", this.props.windowWidth);
-        console.log(allDivs[i]);
         allDivs[i].setAttribute(
           "style",
           `transform: translate3d(${positionEnd}%,0%,0); z-index: ${zIndex}; transition: 1s ease-in-out;`
         );
         if (this.props.windowWidth && this.props.windowWidth <= 768) {
-          console.log("100");
           positionEnd += -110;
         } else {
           positionEnd += -125;
-          console.log("125");
         }
         zIndex--;
       } else {
-        console.log(allDivs[newNegativeI]);
         allDivs[newNegativeI].setAttribute(
           "style",
           `transform: translate3d(${positionEnd}%,0%,0); z-index: ${zIndex}; transition: 1s ease-in-out;`
@@ -135,11 +133,19 @@ export default class SiteIndex extends React.Component {
     }
   };
 
-  changeBackground = () => {
-    const el = document.createElement("div");
-    el.setAttribute("class", "sky sky1");
-    document.querySelector(".section").appendChild(el);
-    document.querySelector(".shadow").setAttribute("class", "shadow shadow1");
+  changeBackground = checked => {
+    let newElement = document.createElement("div");
+    newElement.setAttribute(
+      "class",
+      `site-index__sky site-index__sky--${checked} site-index__sky--animate`
+    );
+    const section = document.querySelector(".site-index");
+    section.appendChild(newElement);
+    setTimeout(() => {
+      section.removeChild(document.querySelector(".site-index__sky"));
+    }, 1500);
+
+    // document.querySelector(".shadow").setAttribute("class", "shadow shadow1");
   };
 
   render() {

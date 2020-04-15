@@ -27,7 +27,6 @@
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    // opacity: 0.8;
     color: white;
     font-size: 3rem;
 
@@ -70,14 +69,20 @@
     background-position: center top;
     background-size: cover;
     z-index: 1;
+    top: 0%;
+    left: 0%;
+    right: 0%;
 
     &--1 {
-      animation: expand 1.5s forwards;
       background-image: url("../../assets/blue-mountain/blue-mountain_mobile-sky.jpg");
 
       @include breakpoint(desktopS) {
         background-image: url("../../assets/blue-mountain/blue-mountain-sky.jpg");
       }
+    }
+
+    &--animate {
+      animation: expand 1.5s forwards;
     }
   }
 
