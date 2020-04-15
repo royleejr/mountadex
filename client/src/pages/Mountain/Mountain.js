@@ -16,9 +16,13 @@ export default class Mountain extends React.Component {
           <MountainHeroBlueMountain pageLocation={this.props.pageLocation} />
         );
       case "horseshoe-resort":
-        return <MountainHeroHorseshoeResort />;
+        return (
+          <MountainHeroHorseshoeResort pageLocation={this.props.pageLocation} />
+        );
       case "st-louis-moonstone":
-        return <MountainHeroMountStLouis />;
+        return (
+          <MountainHeroMountStLouis pageLocation={this.props.pageLocation} />
+        );
       default:
         return <p>No mountain found</p>;
     }

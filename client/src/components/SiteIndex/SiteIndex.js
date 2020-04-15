@@ -5,7 +5,8 @@ import "./SiteIndex.scss";
 var timeout = null;
 export default class SiteIndex extends React.Component {
   state = {
-    checked: 1
+    checked: 1,
+    skyClass: "site-index__sky--1"
   };
 
   componentDidMount() {
@@ -134,6 +135,13 @@ export default class SiteIndex extends React.Component {
     }
   };
 
+  changeBackground = () => {
+    const el = document.createElement("div");
+    el.setAttribute("class", "sky sky1");
+    document.querySelector(".section").appendChild(el);
+    document.querySelector(".shadow").setAttribute("class", "shadow shadow1");
+  };
+
   render() {
     return (
       <section className="site-index" id="index">
@@ -169,7 +177,7 @@ export default class SiteIndex extends React.Component {
             4
           </div>
         </div>
-        <div className="site-index__sky"></div>
+        <div className={`site-index__sky ${this.state.skyClass}`}></div>
         <div className="site-index__shadow"></div>
         <div className="site-index__person"></div>
         <div className="site-index__ground"></div>
