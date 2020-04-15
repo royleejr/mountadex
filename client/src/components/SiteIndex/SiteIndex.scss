@@ -11,7 +11,7 @@
     position: relative;
     width: 100vw;
     margin-bottom: 100px;
-    overflow-x: hidden;
+    // overflow-x: hidden;
     height: 400px;
     top: 25%;
   }
@@ -29,10 +29,11 @@
     background-size: cover;
     color: white;
     font-size: 3rem;
-
     position: absolute;
     left: 50%;
-    box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.37);
+    -webkit-box-shadow: 0px 4px 32px 3px rgba(59, 58, 59, 1);
+    -moz-box-shadow: 0px 4px 32px 3px rgba(59, 58, 59, 1);
+    box-shadow: 0px 4px 32px 3px rgba(59, 58, 59, 1);
 
     @include breakpoint(mobileM) {
       width: 280px;
@@ -48,6 +49,11 @@
       width: 300px;
       height: 350px;
       margin-right: 30px;
+    }
+
+    @include breakpoint(desktopL) {
+      width: 350px;
+      height: 400px;
     }
 
     &--0 {
@@ -73,6 +79,14 @@
     left: 0%;
     right: 0%;
 
+    &--animate {
+      animation: expand 1.5s forwards;
+    }
+
+    &--basic {
+      background-image: url("../../assets/blue-mountain/blue-mountain_mobile-sky.jpg");
+    }
+
     &--1 {
       background-image: url("../../assets/blue-mountain/blue-mountain_mobile-sky.jpg");
 
@@ -81,8 +95,19 @@
       }
     }
 
-    &--animate {
-      animation: expand 1.5s forwards;
+    &--2 {
+      background-image: url("../../assets/blue-mountain/blue-mountain_mobile-sky.jpg");
+
+      @include breakpoint(desktopS) {
+        background-image: url("../../assets/blue-mountain/blue-mountain-sky.jpg");
+      }
+    }
+    &--3 {
+      background-image: url("../../assets/blue-mountain/blue-mountain_mobile-sky.jpg");
+
+      @include breakpoint(desktopS) {
+        background-image: url("../../assets/blue-mountain/blue-mountain-sky.jpg");
+      }
     }
   }
 

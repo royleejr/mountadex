@@ -6,7 +6,9 @@ var timeout = null;
 export default class SiteIndex extends React.Component {
   state = {
     checked: 1,
-    skyClass: "site-index__sky--1"
+    skyClass: "site-index__sky--basic",
+    currentSky: -1,
+    alreadySelected: false
   };
 
   componentDidMount() {
@@ -133,18 +135,112 @@ export default class SiteIndex extends React.Component {
     }
   };
 
-  changeBackground = checked => {
-    let newElement = document.createElement("div");
-    newElement.setAttribute(
-      "class",
-      `site-index__sky site-index__sky--${checked} site-index__sky--animate`
-    );
-    const section = document.querySelector(".site-index");
-    section.appendChild(newElement);
-    setTimeout(() => {
-      section.removeChild(document.querySelector(".site-index__sky"));
-    }, 1500);
+  pushCarouselOut = () => {
+    const allDivs = document.querySelectorAll(".site-index__box");
+    const middle = Math.floor(allDivs.length / 2);
+    const end = this.state.checked + middle;
+    const stop = this.state.checked - middle;
+    let position = 180;
+    let positionEnd = -1000;
+    if (this.props.windowWidth <= 768) {
+      position = 60;
+      positionEnd = -280;
+    } else if (this.props.windowWidth > 768 && this.props.windowWidth < 1280) {
+      position = 130;
+      positionEnd = -280;
+    } else if (this.props.windowWidth >= 1440) {
+      position = 220;
+    }
+    let newI = 0;
+    let newNegativeI = allDivs.length - 1;
+    let zIndex = 20;
 
+    for (let i = this.state.checked; i <= end; i++) {
+      if (!allDivs[i]) {
+        allDivs[newI].setAttribute(
+          "style",
+          `transform: translate3d(${position}%,0%,0); z-index: ${zIndex}; transition: 1s ease-in-out;`
+        );
+        if (this.props.windowWidth && this.props.windowWidth <= 768) {
+          position += 110;
+        } else {
+          position += 125;
+        }
+        newI++;
+        zIndex--;
+      } else {
+        allDivs[i].setAttribute(
+          "style",
+          `transform: translate3d(${position}%,0%,0); z-index: ${zIndex}; transition: 1s ease-in-out;`
+        );
+        if (this.props.windowWidth && this.props.windowWidth <= 768) {
+          position += 110;
+        } else {
+          position += 125;
+        }
+        zIndex--;
+      }
+    }
+
+    for (let i = this.state.checked - 1; i >= stop; i--) {
+      if (allDivs[i]) {
+        allDivs[i].setAttribute(
+          "style",
+          `transform: translate3d(${positionEnd}%,0%,0); z-index: ${zIndex}; transition: 1s ease-in-out;`
+        );
+        if (this.props.windowWidth && this.props.windowWidth <= 768) {
+          positionEnd += -110;
+        } else {
+          positionEnd += -125;
+        }
+        zIndex--;
+      } else {
+        allDivs[newNegativeI].setAttribute(
+          "style",
+          `transform: translate3d(${positionEnd}%,0%,0); z-index: ${zIndex}; transition: 1s ease-in-out;`
+        );
+        if (this.props.windowWidth && this.props.windowWidth <= 768) {
+          positionEnd += -110;
+        } else {
+          positionEnd += -125;
+        }
+        newNegativeI--;
+        zIndex--;
+      }
+    }
+  };
+
+  changeBackground = checked => {
+    console.log(this.state.currentSky);
+    if (this.state.currentSky !== checked) {
+      let newElement = document.createElement("div");
+      newElement.setAttribute(
+        "class",
+        `site-index__sky site-index__sky--${checked} site-index__sky--animate`
+      );
+      const section = document.querySelector(".site-index");
+      section.appendChild(newElement);
+      setTimeout(() => {
+        section.removeChild(document.querySelector(".site-index__sky"));
+      }, 1500);
+
+      this.setState({
+        currentSky: checked,
+        alreadySelected: true
+      });
+
+      this.pushCarouselOut();
+    } else if (this.state.alreadySelected === false) {
+      this.pushCarouselOut();
+      this.setState({
+        alreadySelected: true
+      });
+    } else {
+      this.rotate();
+      this.setState({
+        alreadySelected: false
+      });
+    }
     // document.querySelector(".shadow").setAttribute("class", "shadow shadow1");
   };
 
