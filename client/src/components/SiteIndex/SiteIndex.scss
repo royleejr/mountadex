@@ -67,6 +67,10 @@
     &--2 {
       background-image: url("../../assets/mount-stlouis/mt-st-louis_mobile.jpg");
     }
+
+    &--3 {
+      background-image: url("../../assets/whister-blackcomb/whistler-blackcomb_mobile.jpg");
+    }
   }
 
   &__sky {
@@ -84,7 +88,10 @@
     }
 
     &--basic {
-      background-image: url("../../assets/horseshoe-valley/horseshoe-resort.jpg");
+      background-image: url("../../assets/horseshoe-valley/horseshoe-resort_faded.png");
+      top: -10%;
+      left: -10%;
+      right: -10%;
     }
 
     &--0 {
@@ -99,11 +106,7 @@
       background-image: url("../../assets/mount-stlouis/mt-st-louis_faded.png");
     }
     &--3 {
-      background-image: url("../../assets/blue-mountain/blue-mountain_mobile-sky.jpg");
-
-      @include breakpoint(desktopS) {
-        background-image: url("../../assets/blue-mountain/blue-mountain_faded.png");
-      }
+      background-image: url("../../assets/whister-blackcomb/whistler-blackcomb_faded.png");
     }
   }
 

@@ -314,6 +314,13 @@ export default class Header extends React.Component {
                 >
                   Horseshoe Resort
                 </NavLink>
+                <NavLink
+                  to="/mountain/whistler-blackcomb"
+                  className="header__links header__links--sub header__links--display"
+                  activeClassName="header__links--selected"
+                >
+                  Whistler Blackcomb
+                </NavLink>
               </div>
             </div>
           </nav>

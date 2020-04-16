@@ -251,33 +251,23 @@ export default class SiteIndex extends React.Component {
           <div
             className="site-index__box site-index__box--0"
             onClick={() => this.position(0)}
-          >
-            0
-          </div>
+          ></div>
           <div
             className="site-index__box site-index__box--1"
             onClick={() => this.position(1)}
-          >
-            1
-          </div>
+          ></div>
           <div
             className="site-index__box site-index__box--2"
             onClick={() => this.position(2)}
-          >
-            2
-          </div>
+          ></div>
           <div
-            className="site-index__box site-index__box--1"
+            className="site-index__box site-index__box--3"
             onClick={() => this.position(3)}
-          >
-            3
-          </div>
+          ></div>
           <div
             className="site-index__box site-index__box--0"
             onClick={() => this.position(4)}
-          >
-            4
-          </div>
+          ></div>
         </div>
         <div className={`site-index__sky ${this.state.skyClass}`}></div>
         <div className="site-index__shadow"></div>

@@ -3,6 +3,7 @@ import MountainHeroBlueMountain from "../../components/MountainHeroBlueMountain/
 import MountainHeroHorseshoeResort from "../../components/MountainHeroHorseshoeResort/MountainHeroHorseshoeResort";
 import MountainDescription from "../../components/MountainDescription/MountainDescription";
 import MountainHeroMountStLouis from "../../components/MountainHeroMountStLouis/MountainHeroMountStLouis";
+import MountainHeroWhistlerBlackcomb from "../../components/MountainHeroWhisterBlackcomb/MountainHeroWhisterBlackcomb";
 import data from "../../data/data.json";
 import "./Mountain.scss";
 
@@ -22,6 +23,12 @@ export default class Mountain extends React.Component {
       case "st-louis-moonstone":
         return (
           <MountainHeroMountStLouis pageLocation={this.props.pageLocation} />
+        );
+      case "whistler-blackcomb":
+        return (
+          <MountainHeroWhistlerBlackcomb
+            pageLocation={this.props.pageLocation}
+          />
         );
       default:
         return <p>No mountain found</p>;
