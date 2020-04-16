@@ -56,6 +56,7 @@ export default class MountainHeroWhisterBlackcomb extends React.Component {
   render() {
     return (
       <section className="mountain-hero-whistler">
+        <div className="mountain-hero-whistler__mobile" />
         <div className="mountain-hero-whistler__container nonparallax">
           <div
             className="mountain-hero-whistler__layer mountain-hero-whistler__layer--one parallax"
