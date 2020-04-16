@@ -71,7 +71,7 @@
 
   &__sky {
     position: absolute;
-    bottom: 50%;
+    bottom: 40%;
     background-position: center top;
     background-size: cover;
     z-index: 1;
@@ -84,14 +84,14 @@
     }
 
     &--basic {
-      background-image: url("../../assets/blue-mountain/blue-mountain_mobile-sky.jpg");
+      background-image: url("../../assets/horseshoe-valley/horseshoe-resort.jpg");
     }
 
     &--1 {
       background-image: url("../../assets/blue-mountain/blue-mountain_mobile-sky.jpg");
 
       @include breakpoint(desktopS) {
-        background-image: url("../../assets/blue-mountain/blue-mountain-sky.jpg");
+        background-image: url("../../assets/blue-mountain/blue-mountain_faded.png");
       }
     }
 
@@ -99,14 +99,14 @@
       background-image: url("../../assets/blue-mountain/blue-mountain_mobile-sky.jpg");
 
       @include breakpoint(desktopS) {
-        background-image: url("../../assets/blue-mountain/blue-mountain-sky.jpg");
+        background-image: url("../../assets/blue-mountain/blue-mountain_faded.png");
       }
     }
     &--3 {
       background-image: url("../../assets/blue-mountain/blue-mountain_mobile-sky.jpg");
 
       @include breakpoint(desktopS) {
-        background-image: url("../../assets/blue-mountain/blue-mountain-sky.jpg");
+        background-image: url("../../assets/blue-mountain/blue-mountain_faded.png");
       }
     }
   }
@@ -136,7 +136,7 @@
     position: absolute;
     bottom: 0;
     width: 100%;
-    height: 51%;
+    height: 41%;
     background-image: url("../../assets/site-index/ground.png");
     background-repeat: no-repeat;
     background-position: center bottom;
@@ -152,8 +152,8 @@
     right: 50%;
   }
   to {
-    top: 0%;
-    left: 0%;
-    right: 0%;
+    top: -10%;
+    left: -10%;
+    right: -10%;
   }
 }
