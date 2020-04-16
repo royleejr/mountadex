@@ -11,7 +11,6 @@
     position: relative;
     width: 100vw;
     margin-bottom: 100px;
-    // overflow-x: hidden;
     height: 400px;
     top: 25%;
   }
@@ -71,6 +70,20 @@
     &--3 {
       background-image: url("../../assets/whister-blackcomb/whistler-blackcomb_mobile.jpg");
     }
+  }
+
+  &__title {
+    position: absolute;
+    text-align: center;
+    @include heading-2;
+    color: $paletteblue;
+    z-index: 200;
+    bottom: 50%;
+    left: 50%;
+
+    //going to animate this.
+    //transition: 3s ease-out;
+    //transform: translate(-50%, -20px);
   }
 
   &__sky {

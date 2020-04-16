@@ -148,7 +148,7 @@ export default class SiteIndex extends React.Component {
     } else if (this.props.windowWidth > 768 && this.props.windowWidth < 1280) {
       position = 130;
       positionEnd = -280;
-    } else if (this.props.windowWidth >= 1440) {
+    } else if (this.props.windowWidth >= 1680) {
       position = 220;
     }
     let newI = 0;
@@ -269,6 +269,7 @@ export default class SiteIndex extends React.Component {
             onClick={() => this.position(4)}
           ></div>
         </div>
+        <p className="site-index__title">Whistler Blackcomb</p>
         <div className={`site-index__sky ${this.state.skyClass}`}></div>
         <div className="site-index__shadow"></div>
         <div className="site-index__person"></div>
