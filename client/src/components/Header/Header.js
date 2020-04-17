@@ -88,7 +88,7 @@ export default class Header extends React.Component {
             document
               .querySelector(".header__sub-container")
               .classList.add("header__sub-container--display");
-          }, 700);
+          }, 1000);
         }
       });
 

@@ -210,6 +210,21 @@ export default class SiteIndex extends React.Component {
     }
   };
 
+  addText = () => {
+    const title = document.querySelector(".site-index__title");
+    title.classList.remove("site-index__title--hide");
+    title.classList.add("site-index__title--animate");
+    // setTimeout(() => {
+
+    // }, 500);
+  };
+
+  removeText = () => {
+    const title = document.querySelector(".site-index__title");
+    title.classList.remove("site-index__title--animate");
+    title.classList.add("site-index__title--hide");
+  };
+
   changeBackground = checked => {
     console.log(this.state.currentSky);
     if (this.state.currentSky !== checked) {
@@ -230,13 +245,16 @@ export default class SiteIndex extends React.Component {
       });
 
       this.pushCarouselOut();
+      this.addText();
     } else if (this.state.alreadySelected === false) {
       this.pushCarouselOut();
+      this.addText();
       this.setState({
         alreadySelected: true
       });
     } else {
       this.rotate();
+      this.removeText();
       this.setState({
         alreadySelected: false
       });
@@ -269,10 +287,12 @@ export default class SiteIndex extends React.Component {
             onClick={() => this.position(4)}
           ></div>
         </div>
-        <p className="site-index__title">Whistler Blackcomb</p>
+        <div className="site-index__title site-index__title--hide">
+          Whistler Blackcomb
+        </div>
         <div className={`site-index__sky ${this.state.skyClass}`}></div>
         <div className="site-index__shadow"></div>
-        <div className="site-index__person"></div>
+        {/* <div className="site-index__person"></div> */}
         <div className="site-index__ground"></div>
       </section>
     );
