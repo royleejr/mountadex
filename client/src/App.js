@@ -49,7 +49,6 @@ class App extends React.Component {
 
     //currently have 3 different only because I know I will
     //want to have different classes for each page
-    console.log(scrollTop, this.state.windowHeight);
     if (this.state.page === "home") {
       if (
         scrollTop >= this.state.windowHeight - 60 &&

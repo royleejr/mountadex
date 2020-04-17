@@ -225,6 +225,24 @@ export default class SiteIndex extends React.Component {
     title.classList.add("site-index__title--hide");
   };
 
+  changeShadow = checked => {
+    const shadow = document.querySelector(".site-index__shadow");
+    shadow.classList.remove(`site-index__shadow--basic`);
+    shadow.classList.remove(`site-index__shadow--${this.state.currentSky}`);
+    if (checked === 0) {
+      shadow.classList.add("site-index__shadow--0");
+    } else if (checked === 1) {
+      shadow.classList.add("site-index__shadow--1");
+    } else if (checked === 2) {
+      shadow.classList.add("site-index__shadow--2");
+    } else if (checked === 3) {
+      shadow.classList.add("site-index__shadow--3");
+    }
+    // else if (checked === 1 ) {
+    //   shadow.classList.add('site-index__shadow--1')
+    // }
+  };
+
   changeBackground = checked => {
     console.log(this.state.currentSky);
     if (this.state.currentSky !== checked) {
@@ -246,9 +264,11 @@ export default class SiteIndex extends React.Component {
 
       this.pushCarouselOut();
       this.addText();
+      this.changeShadow(checked);
     } else if (this.state.alreadySelected === false) {
       this.pushCarouselOut();
       this.addText();
+      this.changeShadow(checked);
       this.setState({
         alreadySelected: true
       });
@@ -291,7 +311,7 @@ export default class SiteIndex extends React.Component {
           Whistler Blackcomb
         </div>
         <div className={`site-index__sky ${this.state.skyClass}`}></div>
-        <div className="site-index__shadow"></div>
+        <div className="site-index__shadow site-index__shadow--basic"></div>
         {/* <div className="site-index__person"></div> */}
         <div className="site-index__ground"></div>
       </section>
