@@ -8,16 +8,16 @@ export default class SiteIndex extends React.Component {
     checked: 1,
     skyClass: "site-index__sky--basic",
     currentSky: -1,
-    alreadySelected: false
+    alreadySelected: false,
+    carouselStatus: true
   };
 
   componentDidMount() {
     this.rotate();
-    // this.startCarousel();
+    this.startCarousel();
   }
 
-  componentDidUpdate(prevProps, prevState) {
-    console.log(prevProps, prevState);
+  componentDidUpdate(prevProps) {
     if (prevProps.windowWidth !== this.props.windowWidth) {
       this.rotate();
     }
@@ -30,7 +30,6 @@ export default class SiteIndex extends React.Component {
   startCarousel = () => {
     const allDivs = document.querySelectorAll(".site-index__box");
     timeout = setInterval(() => {
-      console.log("thisis happening", allDivs.length, this.state.checked);
       if (this.state.checked + 1 === allDivs.length) {
         this.setState(
           {
@@ -52,8 +51,13 @@ export default class SiteIndex extends React.Component {
   };
 
   position = num => {
-    console.log("this is wahts pressed", num);
-    console.log("this is whats state", this.state.checked);
+    console.log(this.state.carouselStatus);
+    if (!this.state.carouselStatus) {
+      this.startCarousel();
+      this.setState({
+        carouselStatus: true
+      });
+    }
     if (num === this.state.checked) {
       this.changeBackground(num);
     } else {
@@ -136,6 +140,10 @@ export default class SiteIndex extends React.Component {
   };
 
   pushCarouselOut = () => {
+    clearInterval(timeout);
+    this.setState({
+      carouselStatus: false
+    });
     const allDivs = document.querySelectorAll(".site-index__box");
     const middle = Math.floor(allDivs.length / 2);
     const end = this.state.checked + middle;
@@ -214,9 +222,7 @@ export default class SiteIndex extends React.Component {
     const title = document.querySelector(".site-index__title");
     title.classList.remove("site-index__title--hide");
     title.classList.add("site-index__title--animate");
-    // setTimeout(() => {
-
-    // }, 500);
+    title.innerHTML = this.mountainName();
   };
 
   removeText = () => {
@@ -238,13 +244,9 @@ export default class SiteIndex extends React.Component {
     } else if (checked === 3) {
       shadow.classList.add("site-index__shadow--3");
     }
-    // else if (checked === 1 ) {
-    //   shadow.classList.add('site-index__shadow--1')
-    // }
   };
 
   changeBackground = checked => {
-    console.log(this.state.currentSky);
     if (this.state.currentSky !== checked) {
       let newElement = document.createElement("div");
       newElement.setAttribute(
@@ -279,7 +281,20 @@ export default class SiteIndex extends React.Component {
         alreadySelected: false
       });
     }
-    // document.querySelector(".shadow").setAttribute("class", "shadow shadow1");
+  };
+
+  mountainName = () => {
+    if (this.state.checked === 0) {
+      return "Blue Mountain";
+    } else if (this.state.checked === 1) {
+      return "Horseshoe Resort";
+    } else if (this.state.checked === 2) {
+      return "Mount St Louis";
+    } else if (this.state.checked === 3) {
+      return "Whistler Blackcomb";
+    } else if (this.state.checked === 4) {
+      return "Big White Ski Resort";
+    }
   };
 
   render() {
@@ -307,9 +322,7 @@ export default class SiteIndex extends React.Component {
             onClick={() => this.position(4)}
           ></div>
         </div>
-        <div className="site-index__title site-index__title--hide">
-          Whistler Blackcomb
-        </div>
+        <div className="site-index__title site-index__title--hide"></div>
         <div className={`site-index__sky ${this.state.skyClass}`}></div>
         <div className="site-index__shadow site-index__shadow--basic"></div>
         {/* <div className="site-index__person"></div> */}
