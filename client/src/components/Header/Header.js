@@ -297,6 +297,7 @@ export default class Header extends React.Component {
                   to="/mountain/blue-mountain"
                   className="header__links header__links--sub header__links--display"
                   activeClassName="header__links--selected"
+                  onClick={this.scrollToTop}
                 >
                   Blue Mountain
                 </NavLink>
@@ -304,6 +305,7 @@ export default class Header extends React.Component {
                   to="/mountain/st-louis-moonstone"
                   className="header__links header__links--sub header__links--display"
                   activeClassName="header__links--selected"
+                  onClick={this.scrollToTop}
                 >
                   St. Louis Moonstone
                 </NavLink>
@@ -311,6 +313,7 @@ export default class Header extends React.Component {
                   to="/mountain/horseshoe-resort"
                   className="header__links header__links--sub header__links--display"
                   activeClassName="header__links--selected"
+                  onClick={this.scrollToTop}
                 >
                   Horseshoe Resort
                 </NavLink>
@@ -318,6 +321,7 @@ export default class Header extends React.Component {
                   to="/mountain/whistler-blackcomb"
                   className="header__links header__links--sub header__links--display"
                   activeClassName="header__links--selected"
+                  onClick={this.scrollToTop}
                 >
                   Whistler Blackcomb
                 </NavLink>
@@ -325,6 +329,7 @@ export default class Header extends React.Component {
                   to="/mountain/big-white-ski-resort"
                   className="header__links header__links--sub header__links--display"
                   activeClassName="header__links--selected"
+                  onClick={this.scrollToTop}
                 >
                   Big White Ski Resort
                 </NavLink>
