@@ -95,7 +95,7 @@ export default class MountainHeroBigWhite extends React.Component {
           </div>
           <div
             className="mountain-hero-big-white__layer mountain-hero-big-white__layer--six parallax"
-            data-speed="1"
+            data-speed="2"
             style={{ transform: "translate3d(0px, 0px, 0px)" }}
           >
             {" "}

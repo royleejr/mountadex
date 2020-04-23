@@ -51,13 +51,13 @@ export default class SiteIndex extends React.Component {
   };
 
   position = num => {
-    console.log(this.state.carouselStatus);
     if (!this.state.carouselStatus) {
       this.startCarousel();
       this.setState({
         carouselStatus: true
       });
     }
+
     if (num === this.state.checked) {
       this.changeBackground(num);
     } else {
@@ -243,6 +243,8 @@ export default class SiteIndex extends React.Component {
       shadow.classList.add("site-index__shadow--2");
     } else if (checked === 3) {
       shadow.classList.add("site-index__shadow--3");
+    } else if (checked === 4) {
+      shadow.classList.add("site-index__shadow--4");
     }
   };
 
@@ -285,15 +287,15 @@ export default class SiteIndex extends React.Component {
 
   mountainName = () => {
     if (this.state.checked === 0) {
-      return "Blue Mountain";
+      return "Whistler Blackcomb";
     } else if (this.state.checked === 1) {
-      return "Horseshoe Resort";
+      return "Blue Mountain";
     } else if (this.state.checked === 2) {
       return "Mount St Louis";
     } else if (this.state.checked === 3) {
-      return "Whistler Blackcomb";
-    } else if (this.state.checked === 4) {
       return "Big White Ski Resort";
+    } else if (this.state.checked === 4) {
+      return "Horseshoe Valley";
     }
   };
 

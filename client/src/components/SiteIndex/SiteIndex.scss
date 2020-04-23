@@ -56,11 +56,11 @@
     }
 
     &--0 {
-      background-image: url("../../assets/blue-mountain/blue-mountain_mobile.jpg");
+      background-image: url("../../assets/whister-blackcomb/whistler-blackcomb_mobile.jpg");
     }
 
     &--1 {
-      background-image: url("../../assets/horseshoe-valley/horseshoe-resort_mobile.jpg");
+      background-image: url("../../assets/blue-mountain/blue-mountain_mobile.jpg");
     }
 
     &--2 {
@@ -68,10 +68,10 @@
     }
 
     &--3 {
-      background-image: url("../../assets/whister-blackcomb/whistler-blackcomb_mobile.jpg");
+      background-image: url("../../assets/big-white/big-white_mobile.jpg");
     }
     &--4 {
-      background-image: url("../../assets/big-white/big-white_mobile.jpg");
+      background-image: url("../../assets/horseshoe-valley/horseshoe-resort_mobile.jpg");
     }
   }
 
@@ -121,21 +121,21 @@
     }
 
     &--0 {
-      background-image: url("../../assets/blue-mountain/blue-mountain_faded.png");
+      background-image: url("../../assets/whister-blackcomb/whistler-blackcomb_faded.png");
     }
 
     &--1 {
-      background-image: url("../../assets/horseshoe-valley/horseshoe-resort_faded.png");
+      background-image: url("../../assets/blue-mountain/blue-mountain_faded.png");
     }
 
     &--2 {
       background-image: url("../../assets/mount-stlouis/mt-st-louis_faded.png");
     }
     &--3 {
-      background-image: url("../../assets/whister-blackcomb/whistler-blackcomb_faded.png");
+      background-image: url("../../assets/big-white/big-white_faded.png");
     }
     &--4 {
-      background-image: url("../../assets/big-white/big-white_faded.png");
+      background-image: url("../../assets/horseshoe-valley/horseshoe-resort_faded.png");
     }
   }
 
@@ -155,18 +155,16 @@
     }
 
     &--0 {
-      background-image: linear-gradient(
-        rgba(1, 23, 46, 0.8),
-        rgba(1, 23, 46, 0)
-      );
+      background-image: linear-gradient(rgba(0, 39, 5, 0.8), rgba(0, 39, 5, 0));
       animation: fadeIn 1.5s forwards;
     }
 
     &--1 {
       background-image: linear-gradient(
-        rgba(94, 24, 20, 0.8),
-        rgba(94, 24, 20, 0)
+        rgba(1, 23, 46, 0.8),
+        rgba(1, 23, 46, 0)
       );
+
       animation: fadeIn 1.5s forwards;
     }
 
@@ -178,8 +176,17 @@
       animation: fadeIn 1.5s forwards;
     }
     &--3 {
-      background-image: linear-gradient(rgba(0, 39, 5, 0.8), rgba(0, 39, 5, 0));
+      background-image: linear-gradient(
+        rgba(103, 12, 29, 0.8),
+        rgba(103, 12, 29, 0)
+      );
       animation: fadeIn 1.5s forwards;
+    }
+    &--4 {
+      background-image: linear-gradient(
+        rgba(94, 24, 20, 0.8),
+        rgba(94, 24, 20, 0)
+      );
     }
   }
 

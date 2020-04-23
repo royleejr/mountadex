@@ -174,7 +174,6 @@ class App extends React.Component {
   };
 
   render() {
-    console.log(this.state.windowWidth);
     return (
       <BrowserRouter>
         <Header />
