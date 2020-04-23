@@ -4,13 +4,13 @@ import MountainHeroHorseshoeResort from "../../components/MountainHeroHorseshoeR
 import MountainDescription from "../../components/MountainDescription/MountainDescription";
 import MountainHeroMountStLouis from "../../components/MountainHeroMountStLouis/MountainHeroMountStLouis";
 import MountainHeroWhistlerBlackcomb from "../../components/MountainHeroWhisterBlackcomb/MountainHeroWhisterBlackcomb";
+import MountainHeroBigWhite from "../../components/MountainHeroBigWhite/MountainHeroBigWhite";
 import data from "../../data/data.json";
 import "./Mountain.scss";
 
 export default class Mountain extends React.Component {
   mountain = () => {
     const route = this.props.match.params.mountainName;
-    console.log(route);
     switch (route) {
       case "blue-mountain":
         return <MountainHeroBlueMountain />;
@@ -20,6 +20,8 @@ export default class Mountain extends React.Component {
         return <MountainHeroMountStLouis />;
       case "whistler-blackcomb":
         return <MountainHeroWhistlerBlackcomb />;
+      case "big-white-ski-resort":
+        return <MountainHeroBigWhite />;
       default:
         return <p>No mountain found</p>;
     }
