@@ -88,7 +88,7 @@ export default class Header extends React.Component {
             document
               .querySelector(".header__sub-container")
               .classList.add("header__sub-container--display");
-          }, 700);
+          }, 1200);
         }
       });
 
@@ -319,6 +319,13 @@ export default class Header extends React.Component {
                   activeClassName="header__links--selected"
                 >
                   Whistler Blackcomb
+                </NavLink>
+                <NavLink
+                  to="/mountain/big-white-ski-resort"
+                  className="header__links header__links--sub header__links--display"
+                  activeClassName="header__links--selected"
+                >
+                  Big White Ski Resort
                 </NavLink>
               </div>
             </div>
