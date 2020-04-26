@@ -5,6 +5,7 @@
   position: relative;
   background-color: $paletteblue;
   z-index: 1;
+  overflow: hidden;
 
   &__carousel {
     display: flex;
@@ -77,16 +78,21 @@
 
   &__title {
     position: absolute;
-    width: 100%;
-    text-align: center;
+    height: auto;
     @include heading-1;
-    color: rgb(251, 155, 8);
+    color: rgb(44, 148, 247);
     z-index: 2;
-    bottom: 50%;
+    top: 35%;
     opacity: 0;
     text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #fff,
       0 0 50px #fff, 0 0 60px #fff, 0 0 70px #fff;
-    // transition: 0.4s ease;
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+    text-decoration: none;
+    left: 50%;
+    transform: translate(-50%);
+
     &--hide {
       display: none;
     }
@@ -99,10 +105,23 @@
     }
   }
 
+  &__explore {
+    font-size: 50px;
+    font-weight: 100;
+    margin-right: to-rem(20px);
+    color: #000;
+  }
+
+  &__mountain {
+    @include heading-2;
+    color: black;
+    font-weight: 700;
+  }
+
   &__sky {
     position: absolute;
-    bottom: 41%;
-    background-position: center top;
+    bottom: 49%;
+    background-position: center top 20%;
     background-size: cover;
     z-index: 1;
     top: 0%;
@@ -141,7 +160,7 @@
 
   &__shadow {
     position: absolute;
-    top: 59%;
+    top: 51%;
     width: 100%;
     height: 5%;
     z-index: 10;
@@ -212,7 +231,7 @@
     position: absolute;
     bottom: 0;
     width: 100%;
-    height: 41%;
+    height: 49%;
     background-image: url("../../assets/site-index/ground.png");
     background-repeat: no-repeat;
     background-position: center bottom;
@@ -227,10 +246,10 @@
   }
   40% {
     opacity: 0;
-    bottom: 57%;
+    top: 38%;
   }
   100% {
-    bottom: 50%;
+    top: 35%;
     opacity: 1;
   }
 }

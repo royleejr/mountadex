@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 import "./SiteIndex.scss";
 
@@ -222,8 +223,38 @@ export default class SiteIndex extends React.Component {
     const title = document.querySelector(".site-index__title");
     title.classList.remove("site-index__title--hide");
     title.classList.add("site-index__title--animate");
-    title.innerHTML = this.mountainName();
+    const mountainText = document.querySelector(".site-index__mountain");
+    if (this.state.checked === 0) {
+      mountainText.innerHTML = "Whistler Blackcomb";
+      mountainText.setAttribute("style", "color: rgb(30,113,37);");
+    } else if (this.state.checked === 1) {
+      mountainText.innerHTML = "Blue Mountain";
+      mountainText.setAttribute("style", "color: rgb(44, 148, 247);");
+    } else if (this.state.checked === 2) {
+      mountainText.innerHTML = "Mount St Louis";
+      mountainText.setAttribute("style", "color: rgb(171,132,239);");
+    } else if (this.state.checked === 3) {
+      mountainText.innerHTML = "Big White";
+      mountainText.setAttribute("style", "color: rgb(250, 76, 117);");
+    } else if (this.state.checked === 4) {
+      mountainText.innerHTML = "Horseshoe Resort";
+      mountainText.setAttribute("style", "color: rgb(199, 104, 24);");
+    }
   };
+
+  // mountainName = () => {
+  //   if (this.state.checked === 0) {
+  //     return "Whistler Blackcomb";
+  //   } else if (this.state.checked === 1) {
+  //     return "Blue Mountain";
+  //   } else if (this.state.checked === 2) {
+  //     return "Mount St Louis";
+  //   } else if (this.state.checked === 3) {
+  //     return "Big White";
+  //   } else if (this.state.checked === 4) {
+  //     return "Horseshoe Resort";
+  //   }
+  // };
 
   removeText = () => {
     const title = document.querySelector(".site-index__title");
@@ -285,17 +316,17 @@ export default class SiteIndex extends React.Component {
     }
   };
 
-  mountainName = () => {
+  mountainPath = () => {
     if (this.state.checked === 0) {
-      return "Whistler Blackcomb";
+      return "/mountain/whistler-blackcomb";
     } else if (this.state.checked === 1) {
-      return "Blue Mountain";
+      return "/mountain-blue-mountain";
     } else if (this.state.checked === 2) {
-      return "Mount St Louis";
+      return "/mountain/st-louis-moonstone";
     } else if (this.state.checked === 3) {
-      return "Big White Ski Resort";
+      return "/mountain/big-white-ski-resort";
     } else if (this.state.checked === 4) {
-      return "Horseshoe Valley";
+      return "mountain/horseshoe-resort";
     }
   };
 
@@ -324,7 +355,14 @@ export default class SiteIndex extends React.Component {
             onClick={() => this.position(4)}
           ></div>
         </div>
-        <div className="site-index__title site-index__title--hide"></div>
+        <Link
+          to={this.mountainPath}
+          onClick={() => window.scrollTo(0, 0)}
+          className="site-index__title site-index__title--hide"
+        >
+          <p className="site-index__explore">Come explore</p>
+          <p className="site-index__mountain"></p>
+        </Link>
         <div className={`site-index__sky ${this.state.skyClass}`}></div>
         <div className="site-index__shadow site-index__shadow--basic"></div>
         {/* <div className="site-index__person"></div> */}
