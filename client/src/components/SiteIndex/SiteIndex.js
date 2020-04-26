@@ -242,20 +242,6 @@ export default class SiteIndex extends React.Component {
     }
   };
 
-  // mountainName = () => {
-  //   if (this.state.checked === 0) {
-  //     return "Whistler Blackcomb";
-  //   } else if (this.state.checked === 1) {
-  //     return "Blue Mountain";
-  //   } else if (this.state.checked === 2) {
-  //     return "Mount St Louis";
-  //   } else if (this.state.checked === 3) {
-  //     return "Big White";
-  //   } else if (this.state.checked === 4) {
-  //     return "Horseshoe Resort";
-  //   }
-  // };
-
   removeText = () => {
     const title = document.querySelector(".site-index__title");
     title.classList.remove("site-index__title--animate");
@@ -360,8 +346,8 @@ export default class SiteIndex extends React.Component {
           onClick={() => window.scrollTo(0, 0)}
           className="site-index__title site-index__title--hide"
         >
-          <p className="site-index__explore">Come explore</p>
-          <p className="site-index__mountain"></p>
+          <span className="site-index__explore">Explore</span>
+          <span className="site-index__mountain"></span>
         </Link>
         <div className={`site-index__sky ${this.state.skyClass}`}></div>
         <div className="site-index__shadow site-index__shadow--basic"></div>
