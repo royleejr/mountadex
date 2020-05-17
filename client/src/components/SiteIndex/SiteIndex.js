@@ -10,7 +10,7 @@ export default class SiteIndex extends React.Component {
     skyClass: "site-index__sky--basic",
     currentSky: -1,
     alreadySelected: false,
-    carouselStatus: true
+    carouselStatus: true,
   };
 
   componentDidMount() {
@@ -34,7 +34,7 @@ export default class SiteIndex extends React.Component {
       if (this.state.checked + 1 === allDivs.length) {
         this.setState(
           {
-            checked: 0
+            checked: 0,
           },
           () => {
             this.rotate();
@@ -43,7 +43,7 @@ export default class SiteIndex extends React.Component {
       } else {
         this.setState(
           {
-            checked: this.state.checked + 1
+            checked: this.state.checked + 1,
           },
           () => this.rotate()
         );
@@ -51,11 +51,11 @@ export default class SiteIndex extends React.Component {
     }, 3000);
   };
 
-  position = num => {
+  position = (num) => {
     if (!this.state.carouselStatus) {
       this.startCarousel();
       this.setState({
-        carouselStatus: true
+        carouselStatus: true,
       });
     }
 
@@ -64,7 +64,7 @@ export default class SiteIndex extends React.Component {
     } else {
       this.setState(
         {
-          checked: num
+          checked: num,
         },
         () => {
           this.rotate();
@@ -143,7 +143,7 @@ export default class SiteIndex extends React.Component {
   pushCarouselOut = () => {
     clearInterval(timeout);
     this.setState({
-      carouselStatus: false
+      carouselStatus: false,
     });
     const allDivs = document.querySelectorAll(".site-index__box");
     const middle = Math.floor(allDivs.length / 2);
@@ -248,7 +248,7 @@ export default class SiteIndex extends React.Component {
     title.classList.add("site-index__title--hide");
   };
 
-  changeShadow = checked => {
+  changeShadow = (checked) => {
     const shadow = document.querySelector(".site-index__shadow");
     shadow.classList.remove(`site-index__shadow--basic`);
     shadow.classList.remove(`site-index__shadow--${this.state.currentSky}`);
@@ -265,7 +265,7 @@ export default class SiteIndex extends React.Component {
     }
   };
 
-  changeBackground = checked => {
+  changeBackground = (checked) => {
     if (this.state.currentSky !== checked) {
       let newElement = document.createElement("div");
       newElement.setAttribute(
@@ -280,7 +280,7 @@ export default class SiteIndex extends React.Component {
 
       this.setState({
         currentSky: checked,
-        alreadySelected: true
+        alreadySelected: true,
       });
 
       this.pushCarouselOut();
@@ -291,13 +291,13 @@ export default class SiteIndex extends React.Component {
       this.addText();
       this.changeShadow(checked);
       this.setState({
-        alreadySelected: true
+        alreadySelected: true,
       });
     } else {
       this.rotate();
       this.removeText();
       this.setState({
-        alreadySelected: false
+        alreadySelected: false,
       });
     }
   };

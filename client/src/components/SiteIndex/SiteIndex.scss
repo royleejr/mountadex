@@ -119,7 +119,7 @@
 
   &__sky {
     position: absolute;
-    bottom: 30%;
+    bottom: 35%;
     background-position: center top;
     background-size: cover;
     z-index: 1;
@@ -159,7 +159,7 @@
 
   &__shadow {
     position: absolute;
-    top: 64%;
+    bottom: 35%;
     width: 100%;
     height: 5%;
     z-index: 10;
@@ -230,7 +230,7 @@
     position: absolute;
     bottom: 0;
     width: 100%;
-    height: 50%;
+    height: 40%;
     background-image: url("../../assets/site-index/ground.png");
     background-repeat: no-repeat;
     background-position: center bottom;
